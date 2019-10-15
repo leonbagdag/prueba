@@ -7,6 +7,7 @@ class Navbar extends React.Component {
     return (
       <nav>
         <FontAwesomeIcon icon="bars" size="lg" />
+        <h1 className="logo">Logo</h1>
         <FontAwesomeIcon icon="edit" size="lg" />
       </nav>
     );

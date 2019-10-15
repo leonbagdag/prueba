@@ -3,5 +3,9 @@ nav {
   justify-content: space-between;
   padding: 1rem;
   border-bottom: 1px solid $light-gray;
-  color: $dark-gray;
+  color: $brand-color;
+}
+
+.logo {
+  font-family: $raleway;
 }

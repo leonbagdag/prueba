@@ -1,0 +1,18 @@
+.task {
+  color: $dark-gray;
+  font-family: $raleway;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid $light-gray;
+
+  &__main {
+    width: 60%;
+  }
+
+  &__details {
+    color: $medium-gray;
+    font-size: 0.65rem;
+    padding: 0.5rem 0;
+  }
+}
