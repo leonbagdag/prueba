@@ -1,0 +1,35 @@
+form {
+  margin: 2rem auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: $dark-gray;
+}
+
+label {
+  display: block;
+  padding: 1.5rem 0 0.5rem 0;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $light-gray;
+  color: $medium-gray;
+  background-color: white;
+}
+
+input:hover {
+  border: 1px solid $brand-color;
+}
+
+#payment {
+  width: 94%;
+  margin-left: 0.4rem;
+}
+
+::placeholder {
+  color: $medium-gray;
+}
