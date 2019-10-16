@@ -6,7 +6,7 @@
   border-bottom: 1px solid $light-gray;
 
   &__main {
-    width: 60%;
+    display: flex;
   }
 
   &__details {
@@ -17,6 +17,7 @@
 }
 
 .details {
+  align-items: initial;
   &__date,
   &__location,
   &__pin {
@@ -47,6 +48,11 @@
     padding-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    h3 {
+      align-self: flex-end;
+    }
   }
 
   &__title {

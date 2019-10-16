@@ -15,10 +15,12 @@ class Task extends React.Component {
   render() {
     return (
       <div className="task">
-        <Category />
         <div className="task__main">
-          <h3>{this.state.title}</h3>
-          <p>{this.state.description}</p>
+          <Category />
+          <div className="task__main__content">
+            <h3>{this.state.title}</h3>
+            <p>{this.state.description}</p>
+          </div>
         </div>
 
         <div className="task__details">

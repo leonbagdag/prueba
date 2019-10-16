@@ -18,6 +18,11 @@ textarea {
   border: 1px solid $light-gray;
   color: $medium-gray;
   background-color: white;
+  border-radius: 5px;
+}
+
+select {
+  height: 2.2rem;
 }
 
 input:hover {
@@ -25,7 +30,7 @@ input:hover {
 }
 
 #payment {
-  width: 94%;
+  min-width: 94%;
   margin-left: 0.4rem;
 }
 

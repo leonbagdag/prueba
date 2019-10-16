@@ -20,14 +20,18 @@ class Offer extends React.Component {
           placeholder="Detalla todas las razones que te hacen la persona ideal (experiencia, cercanía, gustos, entre otros)"
           required
         />
+
         <label>Pago propuesto</label>
-        $
-        <input
-          id="payment"
-          name="payment"
-          placeholder="Puedes aceptar el pago ofrecido o sugerir uno diferente"
-          required
-        />
+        <div className="row">
+          $
+          <input
+            id="payment"
+            name="payment"
+            placeholder="Puedes aceptar el pago ofrecido o sugerir uno diferente"
+            required
+          />
+        </div>
+
         <button className="small-btn" type="submit">
           Enviar
         </button>

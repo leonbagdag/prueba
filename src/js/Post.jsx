@@ -36,8 +36,16 @@ class Post extends React.Component {
           required
         />
         <label>Pago ofrecido</label>
-        $
-        <input id="payment" name="payment" placeholder="ej: 10.000" required />
+        <div className="row">
+          $
+          <input
+            id="payment"
+            name="payment"
+            placeholder="ej: 10.000"
+            required
+          />
+        </div>
+
         <button className="large-btn" type="submit">
           Enviar
         </button>
