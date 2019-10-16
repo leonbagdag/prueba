@@ -2,3 +2,12 @@
   display: flex;
   align-items: center;
 }
+
+.container {
+  display: flex;
+  align-content: center;
+  width: 100vw;
+  justify-content: center;
+  height: 100vh;
+  flex-wrap: wrap;
+}

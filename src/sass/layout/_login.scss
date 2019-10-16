@@ -1,0 +1,27 @@
+.login {
+  align-self: center;
+  border-bottom: 1px solid $light-gray;
+}
+
+.alpha-bg {
+  background-color: $alpha-color;
+}
+
+.social-media {
+  width: 90%;
+  padding: 2rem 0;
+
+  &__buttons {
+    justify-content: center;
+  }
+
+  button {
+    width: 40%;
+    margin: 1.5em 0.5em;
+  }
+
+  p {
+    color: $darker-gray;
+    text-align: center;
+  }
+}
