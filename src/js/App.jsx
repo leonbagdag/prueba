@@ -3,7 +3,7 @@ import "../sass/main.scss";
 import Navbar from "./Navbar";
 import Task from "./Task";
 import Post from "./Post";
-import Offer from "./Offer";
+import Details from "./Details";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Navbar />
       <Task />
       <Post />
-      <Offer />
+      <Details />
     </div>
   );
 }

@@ -7,7 +7,7 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "Soy una nueva tarea",
+      title: "Ejemplo de título",
       description: "Soy una descripción"
     };
   }

@@ -1,15 +1,22 @@
-.large-btn {
+button {
   text-align: center;
-  width: 100%;
   padding: 0.65rem 1.5rem;
   font-size: 1em;
   background: $brand-color;
   color: white;
-  margin-top: 2em;
+  margin: 2em auto;
   border: none;
   border-radius: 30px;
 
   button:hover {
     background: $secondary-color;
   }
+}
+
+.large-btn {
+  width: 100%;
+}
+
+.small-btn {
+  width: 50%;
 }

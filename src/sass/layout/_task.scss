@@ -1,6 +1,5 @@
 .task {
   color: $dark-gray;
-  font-family: $raleway;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -14,5 +13,54 @@
     color: $medium-gray;
     font-size: 0.65rem;
     padding: 0.5rem 0;
+  }
+}
+
+.details {
+  &__date,
+  &__location,
+  &__pin {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  &__date,
+  &__location {
+    width: 40%;
+    color: $darker-gray;
+    border-bottom: 1px solid $light-gray;
+  }
+
+  &__location {
+    border-left: 1px solid $light-gray;
+  }
+
+  &__pin {
+    width: 20%;
+    background: $dark-gray;
+    color: white;
+  }
+
+  &__description {
+    padding: 1rem;
+    color: $darker-gray;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    width: 100%;
+    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+    border: 1px solid $secondary-color;
+    color: $secondary-color;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
   }
 }

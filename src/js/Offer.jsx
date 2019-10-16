@@ -7,7 +7,7 @@ class Offer extends React.Component {
     return (
       <form>
         <legend>
-          <h2>Postula a esta tarea</h2>
+          <h3>Postula a esta tarea</h3>
         </legend>
         <label>
           Explica por qué eres la persona indicada para completar esta tarea
@@ -20,10 +20,15 @@ class Offer extends React.Component {
           placeholder="Detalla todas las razones que te hacen la persona ideal (experiencia, cercanía, gustos, entre otros)"
           required
         />
-        <label>Pago ofrecido</label>
+        <label>Pago propuesto</label>
         $
-        <input id="payment" name="payment" placeholder="ej: 10.000" required />
-        <button className="large-btn" type="submit">
+        <input
+          id="payment"
+          name="payment"
+          placeholder="Puedes aceptar el pago ofrecido o sugerir uno diferente"
+          required
+        />
+        <button className="small-btn" type="submit">
           Enviar
         </button>
       </form>
