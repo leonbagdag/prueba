@@ -1,12 +1,16 @@
 import React from "react";
 import "../../sass/main.scss";
-import { Link } from "react-router-dom";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Post extends React.Component {
   render() {
     return (
       <div className="container">
+
+      <div className="close-container">
+        <h4 className="link" onClick={this.props.history.goBack}>X</h4>
+      </div>
       <form>
         <legend>
           <h2>Crea una nueva tarea</h2>
@@ -52,9 +56,9 @@ class Post extends React.Component {
           Enviar
         </button>
       </form>
-      <Link to="/tasks">
-        <small className="link">Ir al inicio</small>
-      </Link>
+      
+        <small className="link" onClick={this.props.history.goBack}>Volver atrás</small>
+      
       </div>
     );
   }

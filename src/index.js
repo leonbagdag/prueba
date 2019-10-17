@@ -9,10 +9,10 @@ import {
   faEdit,
   faTruckMoving,
   faMapMarkerAlt,
-  faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar
+  faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar, faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faBars, faEdit, faTruckMoving, faMapMarkerAlt, faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar);
+library.add(fab, faBars, faEdit, faTruckMoving, faMapMarkerAlt, faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar, faTimesCircle);
 
 ReactDOM.render(<Layout />, document.getElementById("root"));
 
