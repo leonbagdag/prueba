@@ -1,5 +1,5 @@
 import React from "react";
-import "../sass/main.scss";
+import "../../sass/main.scss";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Offer extends React.Component {
@@ -25,7 +25,7 @@ class Offer extends React.Component {
         <div className="row">
           $
           <input
-            id="payment"
+            id="recievedPayment"
             name="payment"
             placeholder="Puedes aceptar el pago ofrecido o sugerir uno diferente"
             required

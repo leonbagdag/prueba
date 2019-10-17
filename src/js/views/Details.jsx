@@ -1,6 +1,7 @@
 import React from "react";
-import Offer from "./Offer";
-import "../sass/main.scss";
+import Navbar from "../component/Navbar";
+import Offer from "../component/Offer";
+import "../../sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Details extends React.Component {
@@ -19,6 +20,7 @@ class Details extends React.Component {
   render() {
     return (
       <>
+        <Navbar />
         <header>
           <h2>{this.state.title}</h2>
         </header>

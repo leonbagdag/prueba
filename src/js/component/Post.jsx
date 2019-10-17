@@ -1,5 +1,5 @@
 import React from "react";
-import "../sass/main.scss";
+import "../../sass/main.scss";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Post extends React.Component {
@@ -39,8 +39,8 @@ class Post extends React.Component {
         <div className="row">
           $
           <input
-            id="payment"
-            name="payment"
+            id="offeredPayment"
+            name="offeredPayment"
             placeholder="ej: 10.000"
             required
           />

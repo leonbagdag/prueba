@@ -1,5 +1,5 @@
 import React from "react";
-import "../sass/main.scss";
+import "../../sass/main.scss";
 import Category from "./Category";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

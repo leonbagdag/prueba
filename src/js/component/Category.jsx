@@ -1,5 +1,5 @@
 import React from "react";
-import "../sass/main.scss";
+import "../../sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Category extends React.Component {

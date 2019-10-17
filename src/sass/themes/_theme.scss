@@ -1,3 +1,14 @@
 * {
   font-family: $raleway;
 }
+
+.align-center {
+  align-self: center;
+  justify-self: center;
+}
+
+.link {
+  color: $brand-color;
+  font-weight: bold;
+  text-decoration: none;
+}
