@@ -13,13 +13,13 @@ class Login extends React.Component {
               <h1 className="logo main-logo">Logo</h1>
             </legend>
             <label>Usuario:</label>
-            <input name="user" />
+            <input name="user" required />
 
             <label>Contraseña:</label>
-            <input name="password" type="password" />
+            <input name="password" type="password" required />
 
             <Link to="/tasks">
-              <button className="large-btn" type="submit">
+              <button className="large-btn" type="submit" required>
                 Ingresar
               </button>
             </Link>

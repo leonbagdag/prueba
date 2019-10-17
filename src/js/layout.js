@@ -5,6 +5,7 @@ import Login from "./views/Login";
 import Home from "./views/Home";
 import Details from "./views/Details";
 import Register from "./views/Register";
+import Post from "./component/Post";
 import injectContext from "./store/appContext";
 
 class Layout extends React.Component {
@@ -16,6 +17,7 @@ class Layout extends React.Component {
             <Route exact path="/" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route path="/tasks" component={Home} />
+            <Route path="/new" component={Post} />
             <Route path="/tasks/:theid" component={Details} />
             <Route render={() => <h1>Esta página no existe :(</h1>} />
           </Switch>
