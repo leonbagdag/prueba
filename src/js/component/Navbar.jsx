@@ -1,6 +1,7 @@
 import React from "react";
 import "../../sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 class Navbar extends React.Component {
   render() {
@@ -8,7 +9,11 @@ class Navbar extends React.Component {
       <nav>
         <FontAwesomeIcon icon="bars" size="lg" />
         <h1 className="logo">Logo</h1>
-        <FontAwesomeIcon icon="edit" size="lg" />
+        
+        <Link to="/new">
+          <FontAwesomeIcon icon="edit" size="lg" /> 
+        </Link>
+        
       </nav>
     );
   }

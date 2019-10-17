@@ -1,5 +1,6 @@
 import React from "react";
 import "../../sass/main.scss";
+import { Link } from "react-router-dom";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Post extends React.Component {
@@ -51,6 +52,9 @@ class Post extends React.Component {
           Enviar
         </button>
       </form>
+      <Link to="/tasks">
+        <small className="link">Ir al inicio</small>
+      </Link>
       </div>
     );
   }
