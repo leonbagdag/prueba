@@ -9,6 +9,16 @@
     display: flex;
   }
 
+  &__row {
+    justify-content: space-between;
+    width: 75vw;
+  }
+
+  &__price h5 {
+    color: $secondary-color;
+    text-align: right;
+  }
+
   &__details {
     font-size: 0.65rem;
     padding: 0.5rem 0;

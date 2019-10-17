@@ -14,7 +14,7 @@ const Home = () => {
         {({store, actions}) => {
           return store.tasks.map((task, i) => {
             return (
-              <Task title={task.title} description={task.description} category={task.category} location={task.location} date={task.date} />
+              <Task title={task.title} description={task.description} category={task.category} location={task.location} date={task.date} payment={task.payment} key={task.id} />
             )
           })
         }}
