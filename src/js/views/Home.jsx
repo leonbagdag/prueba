@@ -3,11 +3,13 @@ import "../../sass/main.scss";
 import Task from "../component/Task";
 import Navbar from "../component/Navbar";
 import { Consumer } from "../store/appContext";
+import CategoryList from "../component/CategoryList";
 
 const Home = () => {
   return (
     <div className="App">
       <Navbar />
+      <CategoryList/>
       <Consumer>
         {({store, actions}) => {
           return store.tasks.map((task, i) => {

@@ -22,10 +22,22 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			categories: [
-				{furniture: "couch"},
-				{cooking: "utensils"},
-				{homework: "school"},
-				{pets: "paw"}
+				{
+					name: "furniture",
+					icon:  "couch"
+				},
+				{
+					name: "cooking",
+					icon:  "utensils"
+				},
+				{
+					name: "homework",
+					icon: "school"
+				},
+				{
+					name: "pets",
+					icon: "paw"
+				}
 			]
 		},
 		actions: {
