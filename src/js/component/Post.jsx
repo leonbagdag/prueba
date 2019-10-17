@@ -5,8 +5,8 @@ import "../../sass/main.scss";
 class Post extends React.Component {
   render() {
     return (
-      <div className="modal">
-      <form className="modal-main">
+      <div className="container">
+      <form>
         <legend>
           <h2>Crea una nueva tarea</h2>
         </legend>

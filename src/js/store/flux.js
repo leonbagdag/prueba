@@ -1,3 +1,4 @@
+const baseUrl = 'http://localhost:3000/api';
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -5,7 +6,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id: 1,
 					title: "Ejemplo de una tarea",
-					category: "pets",
+					category: 1,
 					description: "Imagina que soy una tarea",
 					location: "Providencia",
 					date: "12/12/19",
@@ -14,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					id: 2,
 					title: "Una segunda tarea",
-					category: "homework",
+					category: 3,
 					description: "Soy una tarea no relacionada a la anterior",
 					location: "Santiago",
 					date: "23/11/19",
@@ -23,28 +24,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			categories: [
 				{
-					name: "furniture",
-					icon:  "couch"
+					name: "Hogar",
+					icon:  "couch",
+					id: 1
 				},
 				{
-					name: "cooking",
-					icon:  "utensils"
+					name: "Cocina",
+					icon:  "utensils",
+					id: 2
 				},
 				{
-					name: "homework",
-					icon: "school"
+					name: "Escolares",
+					icon: "school",
+					id: 3
 				},
 				{
-					name: "pets",
-					icon: "paw"
+					name: "Mascotas",
+					icon: "paw",
+					id: 4
 				}
 			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			
-			
-			
+		
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
@@ -66,6 +69,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getTasks: (category) => {
+				let url = baseUrl + '/task'
+				if (category !== undefined) {
+					url = baseUrl + '/task/category/' + category
+				} 
+				
+				fetch(url)
+				.then(resp => resp.json())
+				.then((data) => {
+					setStore({ tasks: data });
+				})
 			}
 		}
 	};

@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className="App">
       <Navbar />
-      <CategoryList/>
+      <CategoryList />
       <Consumer>
         {({store, actions}) => {
           return store.tasks.map((task, i) => {

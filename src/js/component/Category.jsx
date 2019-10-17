@@ -13,19 +13,19 @@ class Category extends React.Component {
           let icon = ""
           
           switch (this.props.category) {
-            case "furniture":
+            case 1:
               icon = "couch"
               break;
 
-            case "cooking":
+            case 2:
               icon = "utensils"
               break;
             
-            case "homework":
+            case 3:
               icon = "book"
               break;
             
-            case "pets":
+            case 4:
               icon = "paw"
               break;
           
