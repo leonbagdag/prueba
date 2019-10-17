@@ -10,9 +10,15 @@
   }
 
   &__details {
-    color: $medium-gray;
     font-size: 0.65rem;
     padding: 0.5rem 0;
+    width: 80%;
+    display: flex;
+
+    div {
+      color: $medium-gray;
+      width: 50%;
+    }
   }
 }
 

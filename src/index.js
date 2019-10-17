@@ -9,9 +9,11 @@ import {
   faEdit,
   faTruckMoving,
   faMapMarkerAlt,
-  faCalendarAlt
+  faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fab, faBars, faEdit, faTruckMoving, faMapMarkerAlt, faCalendarAlt);
+library.add(fab, faBars, faEdit, faTruckMoving, faMapMarkerAlt, faCalendarAlt, faPaw, faCouch, faUtensils, faBook, faStar);
 
 ReactDOM.render(<Layout />, document.getElementById("root"));
+
+

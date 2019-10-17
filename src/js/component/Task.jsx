@@ -4,36 +4,31 @@ import Category from "./Category";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Task extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: "Ejemplo de título",
-      description: "Soy una descripción"
-    };
-  }
 
   render() {
     return (
       <div className="task">
         <div className="task__main">
-          <Category />
+          <Category category={this.props.category} />
           <div className="task__main__content">
-            <h3>{this.state.title}</h3>
-            <p>{this.state.description}</p>
+            <h3>{this.props.title}</h3>
+            {/* <p>{this.props.description}</p> */}
+            
+            <div className="task__details">
+              <div>
+                <FontAwesomeIcon icon="map-marker-alt" />
+                <span> {this.props.location} </span>
+              </div>
+
+              <div>
+                <FontAwesomeIcon icon="calendar-alt" />
+                <span className="task__details__date"> {this.props.date} </span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="task__details">
-          <p>
-            <FontAwesomeIcon icon="map-marker-alt" />
-            <span> Providencia</span>
-          </p>
-
-          <p>
-            <FontAwesomeIcon icon="calendar-alt" />
-            <span> 10/12/2019</span>
-          </p>
-        </div>
+        
       </div>
     );
   }
