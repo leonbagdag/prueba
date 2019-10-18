@@ -24,7 +24,8 @@ class Register extends React.Component {
                   <input name="lastname" />
 
                   <label>RUT:</label>
-                  <input name="rut" />
+                  <input className="rut" name="rut" /> <span> - </span> 
+                  <input className="verificador" name="verificador" />
 
                   <label>Email:</label>
                   <input name="mail" type="email" />

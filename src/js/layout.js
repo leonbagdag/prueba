@@ -5,7 +5,7 @@ import Login from "./views/Login";
 import Home from "./views/Home";
 import Details from "./views/Details";
 import Register from "./views/Register";
-import Post from "./component/Post";
+import Post from "./views/Post";
 import injectContext from "./store/appContext";
 
 class Layout extends React.Component {
