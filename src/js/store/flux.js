@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					category: 1,
 					description: "Imagina que soy una tarea",
 					location: "Providencia",
-					date: "12/12/19",
+					date: "12/12/2019",
 					payment: "10.000"
 				},
 				{
@@ -18,7 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					category: 3,
 					description: "Soy una tarea no relacionada a la anterior",
 					location: "Santiago",
-					date: "23/11/19",
+					date: "23/11/2019",
 					payment: "15.000"
 				}
 			],
@@ -43,11 +43,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 					icon: "paw",
 					id: 4
 				}
+			],
+			cities: [
+				{
+					id: 1,
+					name: "Las Condes"
+				},
+				{
+					id: 2,
+					name: "Providencia"
+				}, 
+				{
+					id: 3,
+					name: "Santiago"
+				}, {
+					id: 4,
+					name: "Ñuñoa"
+				}, {
+					id: 5,
+					name: "La Reina"
+				}, {
+					id: 6,
+					name: "Vitacura"
+				}, {
+					id: 7,
+					name: "Lo Barnechea"
+				}, 
 			]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-		
+			handleSubmit: (e) => {
+				e.preventDefault();
+				const data = new FormData(e.target);
+				
+				fetch('url', {
+				  method: 'POST',
+				  body: data,
+				});
+			},
+
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
