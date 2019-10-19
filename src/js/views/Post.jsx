@@ -63,6 +63,7 @@ class Post extends React.Component {
                   rows="5"
                   placeholder="Explica los detalles de tu tarea: en qué consiste, cuánto tiempo durará, qué esperas que se cumpla"
                   required
+                  onChange={actions.handleChange}
                 />
                 <label>Pago ofrecido</label>
                 <div className="row">
@@ -72,6 +73,7 @@ class Post extends React.Component {
                     name="offeredPayment"
                     placeholder="ej: 10.000"
                     required
+                    onChange={actions.handleChange}
                   />
                 </div>
 

@@ -17,7 +17,7 @@ class Login extends React.Component {
                     <h1 className="logo main-logo">Logo</h1>
                   </legend>
                   <label>Usuario:</label>
-                  <input name="user" required />
+                  <input min="4" max="10" name="user" required />
 
                   <label>Contraseña:</label>
                   <input name="password" type="password" required />
