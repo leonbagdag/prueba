@@ -29,31 +29,31 @@ class Post extends React.Component {
                   <option value="">
                     --Selecciona la comuna donde ocurrirá la tarea--
                   </option>
-                  
+
                     {store.categories.map((category, i) => {
                         return (
                           <option value={category.id} key={category.id}>{category.name}</option>
                         )
                       })
                     }}
-            
+
                 </select>
                 <label>Fecha</label>
-                <input type="date" name="date" required />
+                <input type="date" name="date" min= "2018-01-01" max= "2019-01-01" required />
                 <label>Lugar</label>
                 <select>
                   <option value="">
                     --Selecciona la comuna donde ocurrirá la tarea--
                   </option>
 
-                  
+
                     {store.cities.map((city, i) => {
                         return (
                           <option value={city.name} key={city.id}>{city.name}</option>
                         )
                       })
                     }}
-                  
+
                 </select>
                 <label>Descripción</label>
                 <textarea
@@ -81,7 +81,7 @@ class Post extends React.Component {
                 <div className="row go-back">
                 <small className="link" onClick={this.props.history.goBack}>Volver atrás</small>
                 </div>
-                
+
               </form>
             </div>
             )
