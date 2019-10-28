@@ -2,9 +2,15 @@ import React from "react";
 import "../../sass/main.scss";
 import { Consumer } from "../store/appContext";
 import { Link } from "react-router-dom";
+
+const { validate, clean, format } = require('rut.js')
+
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Register extends React.Component {
+    handleRegister = (e) => {
+        e.preventDefault();
+    }
   render() {
     return (
       <Consumer>
@@ -12,39 +18,49 @@ class Register extends React.Component {
           return (
             <main className="container">
               <div>
-                <form className="register">
+                <form className="register" onSubmit={this.handleRegister}  >
                   <legend>
                     <h1 className="logo main-logo">Logo</h1>
                   </legend>
 
                   <label>Nombre:</label>
-                  <input name="name" />
+                  <input name="name" required/>
 
                   <label>Apellido:</label>
-                  <input name="lastname" />
+                  <input name="lastname" required/>
 
                   <label>RUT:</label>
-                  <input className="rut" name="rut" /> <span> - </span> 
-                  <input className="verificador" name="verificador" />
+                  <input
+                    type="text"
+                    name="rut"
+                    required="required"
+                    pattern="\d{3,8}-[\d|kK]{1}"
+                    minLength="10"
+                    maxLength="12"
+                    title="Debe ser un Rut válido"
+                    onKeyUp={(e) => { e.target.value = format(e.target.value) }}
+                    onBlur={(e) => { validate(e.target.value) ? alert('El rut es valido') : alert('El rut no es valido') } }
+                    />
+
 
                   <label>Email:</label>
-                  <input name="mail" type="email" />
+                  <input name="mail" type="email" required />
 
                   <label>Usuario:</label>
-                  <input name="username" />
+                  <input name="username" required/>
 
                   <label>Contraseña:</label>
-                  <input name="password" type="password" />
+                  <input name="password" type="password" required/>
 
                   <label>Foto de perfil:</label>
-                  <input name="thumbnail" type="file" />
+                  <input name="thumbnail" type="file" accept="image/*" required />
 
-                  <Link to="/tasks">
+
+
                     <button className="large-btn" type="submit">
                       Crear cuenta
                     </button>
-                  </Link>
-                  
+
                 </form>
               </div>
             </main>
