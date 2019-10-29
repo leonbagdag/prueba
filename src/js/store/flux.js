@@ -5,70 +5,74 @@ const getState = ({ getStore, getActions, setStore }) => {
 			tasks: [
 				{
 					id: 1,
-					title: "Ejemplo de una tarea",
+					title: 'Ejemplo de una tarea',
 					category: 1,
-					description: "Imagina que soy una tarea",
-					location: "Providencia",
-					date: "12/12/2019",
-					payment: "10.000"
+					description: 'Imagina que soy una tarea',
+					location: 'Providencia',
+					date: '12/12/2019',
+					payment: '10.000'
 				},
 				{
 					id: 2,
-					title: "Una segunda tarea",
+					title: 'Una segunda tarea',
 					category: 3,
-					description: "Soy una tarea no relacionada a la anterior",
-					location: "Santiago",
-					date: "23/11/2019",
-					payment: "15.000"
+					description: 'Soy una tarea no relacionada a la anterior',
+					location: 'Santiago',
+					date: '23/11/2019',
+					payment: '15.000'
 				}
 			],
 			categories: [
 				{
-					name: "Hogar",
-					icon:  "couch",
+					name: 'Hogar',
+					icon: 'couch',
 					id: 1
 				},
 				{
-					name: "Cocina",
-					icon:  "utensils",
+					name: 'Manualidades',
+					icon: 'cut',
 					id: 2
 				},
 				{
-					name: "Escolares",
-					icon: "school",
+					name: 'Mascotas',
+					icon: 'paw',
 					id: 3
 				},
 				{
-					name: "Mascotas",
-					icon: "paw",
+					name: 'De todo',
+					icon: 'star',
 					id: 4
 				}
 			],
 			cities: [
 				{
 					id: 1,
-					name: "Las Condes"
+					name: 'Las Condes'
 				},
 				{
 					id: 2,
-					name: "Providencia"
-				}, 
+					name: 'Providencia'
+				},
 				{
 					id: 3,
-					name: "Santiago"
-				}, {
+					name: 'Santiago'
+				},
+				{
 					id: 4,
-					name: "Ñuñoa"
-				}, {
+					name: 'Ñuñoa'
+				},
+				{
 					id: 5,
-					name: "La Reina"
-				}, {
+					name: 'La Reina'
+				},
+				{
 					id: 6,
-					name: "Vitacura"
-				}, {
+					name: 'Vitacura'
+				},
+				{
 					id: 7,
-					name: "Lo Barnechea"
-				}, 
+					name: 'Lo Barnechea'
+				}
 			]
 		},
 		actions: {
@@ -76,15 +80,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			handleSubmit: (e) => {
 				e.preventDefault();
 				const data = new FormData(e.target);
-				
+
 				fetch('url', {
-				  method: 'POST',
-				  body: data,
+					method: 'POST',
+					body: data
 				});
 			},
 
 			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+				getActions().changeColor(0, 'green');
 			},
 			loadSomeData: () => {
 				/**
@@ -123,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						...this.store.tasks,
 						[e.target.name]: e.target.value
 					}
-				})
+				});
 			}
 		}
 	};

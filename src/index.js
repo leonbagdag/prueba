@@ -19,7 +19,8 @@ import {
 	faUser,
 	faSignOutAlt,
 	faHome,
-	faTasks
+	faTasks,
+	faCut
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -38,7 +39,8 @@ library.add(
 	faUser,
 	faSignOutAlt,
 	faHome,
-	faTasks
+	faTasks,
+	faCut
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));

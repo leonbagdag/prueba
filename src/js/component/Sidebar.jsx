@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../sass/main.scss';
 import Menu from './Menu';
+import { withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Sidebar extends React.Component {
@@ -24,4 +25,4 @@ class Sidebar extends React.Component {
 	}
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

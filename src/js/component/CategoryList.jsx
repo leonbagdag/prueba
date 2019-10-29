@@ -21,6 +21,7 @@ const CategoryList = () => {
 						return store.categories.map((category, i) => {
 							return (
 								<div
+									icon={category.icon}
 									className="category-list__icon"
 									key={i}
 									onClick={(e) => {
