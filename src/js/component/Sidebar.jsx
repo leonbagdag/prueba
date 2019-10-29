@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../sass/main.scss';
 import Menu from './Menu';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Sidebar extends React.Component {
 	render() {
@@ -16,7 +17,7 @@ class Sidebar extends React.Component {
 						this.props.history.push('/new');
 					}}
 				>
-					Crear tarea
+					<FontAwesomeIcon icon="edit" /> Crear tarea
 				</button>
 			</aside>
 		);
