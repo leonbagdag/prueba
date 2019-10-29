@@ -1,0 +1,20 @@
+.sidebar {
+	padding: 2rem 1.5rem;
+	border-right: $border;
+	height: 100vh;
+
+	li {
+		list-style: none;
+		line-height: 3rem;
+	}
+
+	.logo {
+		padding: 1rem 0 2rem;
+		text-align: center;
+	}
+
+	&__menu {
+		width: 69%;
+		margin: 0 auto;
+	}
+}
