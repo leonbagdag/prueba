@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api';
+//const baseUrl = 'http://localhost:3000/api';
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -106,7 +106,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			getTasks: (category) => {
-				let url = baseUrl + '/task'
+				/* let url = baseUrl + '/task'
 				if (category !== undefined) {
 					url = baseUrl + '/task/category/' + category
 				} 
@@ -115,6 +115,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(resp => resp.json())
 				.then((data) => {
 					setStore({ tasks: data });
+				}) */
+			},
+			handleChange: (e) => {
+				setStore({
+					tasks: {
+						...this.store.tasks,
+						[e.target.name]: e.target.value
+					}
 				})
 			}
 		}

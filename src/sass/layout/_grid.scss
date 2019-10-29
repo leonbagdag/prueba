@@ -1,22 +1,73 @@
 .row {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .container {
-  display: flex;
-  align-content: center;
-  width: 100vw;
-  justify-content: center;
-  min-height: 100vh;
-  flex-wrap: wrap;
+	display: flex;
+	align-content: center;
+	width: 100vw;
+	justify-content: center;
+	min-height: 100vh;
+	flex-wrap: wrap;
+}
+
+.column {
+	height: 100vh;
 }
 
 .wrapper {
-  background-color: white;
-  padding: 1rem;
+	background-color: white;
+	padding: 1rem;
 }
 
 .justify-between {
-  justify-content: space-between;
+	justify-content: space-between;
+}
+
+.w-70 {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.w-30 {
+		width: 25vw;
+	}
+
+	.w-70 {
+		width: 75vw;
+	}
+}
+
+.d-none-xs {
+	display: none;
+
+	@media (min-width: 768px) {
+		display: initial;
+	}
+}
+
+.d-none-md {
+	@media (min-width: 768px) {
+		display: none;
+	}
+}
+
+.centered {
+	width: 100%;
+}
+
+.border-bottom {
+	border-bottom: $border;
+}
+
+.App {
+	display: flex;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 1rem;
+	font-size: .8rem;
+	font-weight: 100;
 }
