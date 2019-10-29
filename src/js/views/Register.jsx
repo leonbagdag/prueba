@@ -61,7 +61,7 @@ class Register extends React.Component {
 										type="submit"
 										onClick={(e) => {
 											e.preventDefault();
-											this.props.history.push('/tasks');
+											//this.props.history.push('/tasks');
 										}}
 									>
 										Crear cuenta
