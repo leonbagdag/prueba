@@ -1,14 +1,10 @@
 .sidebar {
 	padding: 2rem 1rem;
 	border-right: $border;
-	height: 100vh;
+	min-height: 100vh;
 
 	@media (min-width: 992px) {
 		padding: 2rem;
-	}
-
-	@media (min-width: 1200px) {
-		padding: 2rem 4rem;
 	}
 
 	li {
