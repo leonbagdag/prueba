@@ -1,10 +1,15 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../sass/main.scss';
 import Category from '../component/Category';
 import { Consumer } from '../store/appContext';
 
+import { getIconByCode, listCategories } from '../constants/categories';
+
 const CategoryList = () => {
 	let myActions = null;
+
+	const [ categorySelected, setCategorySelected ] = useState(listCategories.anything);
+
 	useEffect(() => {
 		// COMPONENT DID MOUNT
 		if (myActions !== null) {
@@ -19,16 +24,20 @@ const CategoryList = () => {
 					{({ store, actions }) => {
 						myActions = actions;
 						return store.categories.map((category, i) => {
+							let classNameCat = 'category-list__icon';
+							classNameCat += categorySelected === category.code ? ' active' : '';
+
 							return (
 								<div
 									icon={category.icon}
-									className="category-list__icon"
+									className={classNameCat}
 									key={i}
 									onClick={(e) => {
 										actions.getTasks(category.id);
+										setCategorySelected(category.code);
 									}}
 								>
-									<Category category={category.id} />
+									<Category category={category.id} icon={getIconByCode(category.code)} />
 									<h5>{category.name}</h5>
 								</div>
 							);

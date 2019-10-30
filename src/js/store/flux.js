@@ -20,27 +20,45 @@ const getState = ({ getStore, getActions, setStore }) => {
 					location: 'Santiago',
 					date: '23/11/2019',
 					payment: '15.000'
+				},
+				{
+					id: 3,
+					title: 'Una segunda tarea',
+					category: 3,
+					description: 'Soy una tarea no relacionada a la anterior 2',
+					location: 'Santiago',
+					date: '23/11/2019',
+					payment: '15.000'
+				},
+				{
+					id: 4,
+					title: 'Una segunda tarea',
+					category: 4,
+					description: 'Soy una tarea no relacionada a la anterior',
+					location: 'Santiago',
+					date: '23/11/2019',
+					payment: '15.000'
 				}
 			],
 			categories: [
 				{
+					code: 'home',
 					name: 'Hogar',
-					icon: 'couch',
 					id: 1
 				},
 				{
+					code: 'crafts',
 					name: 'Manualidades',
-					icon: 'cut',
 					id: 2
 				},
 				{
+					code: 'pets',
 					name: 'Mascotas',
-					icon: 'paw',
 					id: 3
 				},
 				{
+					code: 'anything',
 					name: 'De todo',
-					icon: 'star',
 					id: 4
 				}
 			],
@@ -120,6 +138,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then((data) => {
 					setStore({ tasks: data });
 				}) */
+
+				let urlEndpoint = 'api/tasks';
+
+				if (category !== undefined) {
+					console.log('Filtra por categoria' + category);
+					urlEndpoint += '/category/' + category;
+				} else {
+					console.log('todas las tareas');
+				}
+
+				/*
+				fetch(urlEndpoint).then((resp) => resp.json()).then((data) => {
+					setStore({ tasks: data });
+				});
+				*/
+
+				const dataJson = require('./data/sample.json');
+				setStore({ tasks: dataJson });
 			},
 			handleChange: (e) => {
 				setStore({

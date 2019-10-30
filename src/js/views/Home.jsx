@@ -4,6 +4,8 @@ import Task from '../component/Task';
 import { Consumer } from '../store/appContext';
 import CategoryList from '../component/CategoryList';
 
+import { getIconById } from '../constants/categories';
+
 const Home = () => {
 	return (
 		<div className="w-70">
@@ -20,6 +22,7 @@ const Home = () => {
 								date={task.date}
 								payment={task.payment}
 								key={task.id}
+								categoryIcon={getIconById(store.categories, task.category)}
 							/>
 						);
 					});
