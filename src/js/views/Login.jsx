@@ -3,6 +3,7 @@ import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Logo from '../component/logo';
 
 class Login extends React.Component {
 	render() {
@@ -14,7 +15,7 @@ class Login extends React.Component {
 							<div>
 								<form className="login">
 									<legend>
-										<h1 className="logo main-logo">Logo</h1>
+										<Logo />
 									</legend>
 									<label>Usuario:</label>
 									<input min="4" max="10" name="user" required />

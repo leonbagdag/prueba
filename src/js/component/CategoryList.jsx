@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../sass/main.scss';
-import Category from '../component/Category';
+import Category from './category';
 import { Consumer } from '../store/appContext';
 
 import { getIconByCode, listCategories } from '../constants/categories';
@@ -8,12 +8,13 @@ import { getIconByCode, listCategories } from '../constants/categories';
 const CategoryList = () => {
 	let myActions = null;
 
-	const [ categorySelected, setCategorySelected ] = useState(listCategories.anything);
+	const [ categorySelected, setCategorySelected ] = useState(listCategories.all);
 
 	useEffect(() => {
 		// COMPONENT DID MOUNT
 		if (myActions !== null) {
 			myActions.getTasks();
+			myActions.getCategories();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

@@ -2,15 +2,15 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // Components
-import Login from './views/Login';
-import Home from './views/Home';
-import Details from './views/Details';
-import Register from './views/Register';
-import Post from './views/Post';
+import Login from './views/login';
+import Home from './views/home';
+import Details from './views/details';
+import Register from './views/register';
+import Post from './views/post';
 
 // Layouts
-import DashboardLayoutRoute from './templates/Dashboard';
-import PublicLayoutRoute from './templates/Public';
+import DashboardLayoutRoute from './templates/dashboard';
+import PublicLayoutRoute from './templates/public';
 
 // Context
 import injectContext from './store/appContext';

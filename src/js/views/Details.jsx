@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../component/Navbar";
-import Offer from "../component/Offer";
+import Navbar from "../component/navbar";
+import Offer from "../component/offer";
 import "../../sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

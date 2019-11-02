@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../../sass/main.scss';
-import Task from '../component/Task';
+import Task from '../component/task';
 import { Consumer } from '../store/appContext';
-import CategoryList from '../component/CategoryList';
+import CategoryList from '../component/categoryList';
 
 import { getIconById } from '../constants/categories';
 

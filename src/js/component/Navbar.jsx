@@ -2,7 +2,8 @@ import React from 'react';
 import '../../sass/main.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import Menu from './Menu';
+import Menu from './menu';
+import Logo from './logo';
 
 class Navbar extends React.Component {
 	render() {
@@ -17,8 +18,7 @@ class Navbar extends React.Component {
 					<Menu className="menu" />
 				</div>
 
-				<h1 className="logo">Logo</h1>
-
+				<Logo />
 				<Link to="/new">
 					<FontAwesomeIcon icon="edit" size="lg" />
 				</Link>

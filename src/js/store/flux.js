@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					code: 'anything',
-					name: 'Todas',
+					name: 'Otras',
 					id: 7
 				}
 			],
@@ -82,6 +82,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					body: data
 				});
 			},*/
+
+			getCategories: () => {
+				let store = getStore();
+				let categories = [ { code: 'all', name: 'Todas' }, ...store.categories ];
+				setStore({ categories });
+			},
 
 			getTasks: (category) => {
 				/* let url = baseUrl + '/task'

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
+import Logo from '../component/logo';
 const { validate, format } = require('rut.js');
 
 class Register extends React.Component {
@@ -15,7 +16,7 @@ class Register extends React.Component {
 						<div>
 							<form className="register" onSubmit={this.handleRegister}>
 								<legend>
-									<h1 className="logo main-logo">Logo</h1>
+									<Logo />
 								</legend>
 
 								<label>Nombre:</label>

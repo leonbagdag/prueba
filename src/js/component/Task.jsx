@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../sass/main.scss';
-import Category from './Category';
+import Category from './category';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Task extends React.Component {
