@@ -20,7 +20,10 @@ import {
 	faSignOutAlt,
 	faHome,
 	faTasks,
-	faCut
+	faCut,
+	faGlassCheers,
+	faPaperclip,
+	faCalendarCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -40,7 +43,10 @@ library.add(
 	faSignOutAlt,
 	faHome,
 	faTasks,
-	faCut
+	faCut,
+	faGlassCheers,
+	faPaperclip,
+	faCalendarCheck
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));

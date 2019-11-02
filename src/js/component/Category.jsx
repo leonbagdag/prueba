@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Consumer } from '../store/appContext';
 
 class Category extends React.Component {
 	render() {
