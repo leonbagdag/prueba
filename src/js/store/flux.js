@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					code: 'anything',
-					name: 'Otras',
+					name: 'Todas',
 					id: 7
 				}
 			],
@@ -73,7 +73,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			handleSubmit: (e) => {
+			/*handleSubmit: (e) => {
 				e.preventDefault();
 				const data = new FormData(e.target);
 
@@ -81,30 +81,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: 'POST',
 					body: data
 				});
-			},
+			},*/
 
-			exampleFunction: () => {
-				getActions().changeColor(0, 'green');
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			},
 			getTasks: (category) => {
 				/* let url = baseUrl + '/task'
 				if (category !== undefined) {
@@ -118,6 +96,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}) */
 
 				//let urlEndpoint = 'api/tasks';
+
+				const dataJson = require('./data/sample.json');
+				setStore({ tasks: dataJson });
 
 				if (category !== undefined) {
 					const store = getStore();
@@ -135,17 +116,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ tasks: data });
 				});
 				*/
-
-				const dataJson = require('./data/sample.json');
-				setStore({ tasks: dataJson });
 			},
-			handleChange: (e) => {
-				setStore({
-					tasks: {
-						...this.store.tasks,
-						[e.target.name]: e.target.value
-					}
-				});
+			handleTaskSubmit: (e) => {
+				e.preventDefault();
+				const store = getStore();
+				//let tasks = store.tasks;
+				console.log(e);
 			}
 		}
 	};

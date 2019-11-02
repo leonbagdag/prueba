@@ -11,7 +11,7 @@ class Post extends React.Component {
 				{({ store, actions }) => {
 					return (
 						<div className="container">
-							<form className="post" onSubmit={actions.handleSubmit}>
+							<form className="post" onSubmit={actions.handleTaskSubmit}>
 								<legend>
 									<h2>Crea una nueva tarea</h2>
 								</legend>

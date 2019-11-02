@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../../sass/main.scss';
 import Task from '../component/Task';
 import { Consumer } from '../store/appContext';
