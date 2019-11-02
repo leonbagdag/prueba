@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
-const { validate, clean, format } = require('rut.js');
+const { validate, format } = require('rut.js');
 
 class Register extends React.Component {
 	handleRegister = (e) => {

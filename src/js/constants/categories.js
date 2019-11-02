@@ -3,7 +3,10 @@ export const listCategories = {
 	home: 'home',
 	crafts: 'crafts',
 	pets: 'pets',
-	anything: 'anything'
+	anything: 'anything',
+	paperwork: 'paperwork',
+	errands: 'errands',
+	events: 'events'
 };
 
 const categoriesIcon = [
@@ -18,6 +21,18 @@ const categoriesIcon = [
 	{
 		code: listCategories.pets,
 		icon: 'paw'
+	},
+	{
+		code: listCategories.events,
+		icon: 'glass-cheers'
+	},
+	{
+		code: listCategories.paperwork,
+		icon: 'paperclip'
+	},
+	{
+		code: listCategories.errands,
+		icon: 'calendar-check'
 	},
 	{
 		code: listCategories.anything,
