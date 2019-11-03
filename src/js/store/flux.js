@@ -1,4 +1,6 @@
 //const baseUrl = 'http://localhost:3000/api';
+import { formatDate } from '../constants/utils';
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -155,10 +157,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let name = e.currentTarget.name;
 				let value = e.currentTarget.value;
 
+				value = name === 'category' ? parseInt(value) : value;
+				value = name === 'date' ? formatDate(value) : value;
+
 				newTask = {
 					...newTask,
 					id: index,
-					[name]: e.currentTarget.name === 'category' ? parseInt(value) : value
+					[name]: value
 				};
 
 				let tasks = [ ...store.tasks, newTask ];
