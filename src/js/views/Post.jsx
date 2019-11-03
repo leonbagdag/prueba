@@ -11,15 +11,26 @@ class Post extends React.Component {
 				{({ store, actions }) => {
 					return (
 						<div className="container">
-							<form className="post" onSubmit={actions.handleTaskSubmit}>
+							<form
+								className="post"
+								onSubmit={(e) => {
+									e.preventDefault();
+									this.props.history.push('/tasks');
+								}}
+							>
 								<legend>
 									<h2>Crea una nueva tarea</h2>
 								</legend>
 								<label>Título</label>
-								<input name="title" placeholder="Describe brevemente qué necesitas" required />
+								<input
+									onChange={actions.handleNewTask}
+									name="title"
+									placeholder="Describe brevemente qué necesitas"
+									required
+								/>
 								<label>Categoría</label>
-								<select>
-									<option value="">--Selecciona la comuna donde ocurrirá la tarea--</option>
+								<select name="category" onChange={actions.handleNewTask}>
+									<option value="">--Selecciona la categoría correspondiente--</option>
 									{store.categories.map((category, i) => {
 										return (
 											<option value={category.id} key={category.id}>
@@ -29,9 +40,16 @@ class Post extends React.Component {
 									})}}
 								</select>
 								<label>Fecha</label>
-								<input type="date" name="date" min="2018-01-01" max="2019-01-01" required />
+								<input
+									onChange={actions.handleNewTask}
+									type="date"
+									name="date"
+									min="01/11/2019"
+									max="01/01/2020"
+									required
+								/>
 								<label>Lugar</label>
-								<select>
+								<select onChange={actions.handleNewTask} name="location">
 									<option value="">--Selecciona la comuna donde ocurrirá la tarea--</option>
 									{store.cities.map((city, i) => {
 										return (
@@ -49,17 +67,17 @@ class Post extends React.Component {
 									rows="5"
 									placeholder="Explica los detalles de tu tarea: en qué consiste, cuánto tiempo durará, qué esperas que se cumpla"
 									required
-									onChange={actions.handleChange}
+									onChange={actions.handleNewTask}
 								/>
 								<label>Pago ofrecido</label>
 								<div className="row">
 									<span>$ </span>
 									<input
 										id="offeredPayment"
-										name="offeredPayment"
+										name="payment"
 										placeholder="ej: 10.000"
 										required
-										onChange={actions.handleChange}
+										onChange={actions.handleNewTask}
 									/>
 								</div>
 

@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react';
 import '../../sass/main.scss';
 import Category from './category';
 import { Consumer } from '../store/appContext';
+import { withRouter } from 'react-router';
 
 import { getIconByCode, listCategories } from '../constants/categories';
 
-const CategoryList = () => {
+const CategoryList = (props) => {
 	let myActions = null;
 
 	const [ categorySelected, setCategorySelected ] = useState(listCategories.all);
@@ -50,4 +51,4 @@ const CategoryList = () => {
 	);
 };
 
-export default CategoryList;
+export default withRouter(CategoryList);

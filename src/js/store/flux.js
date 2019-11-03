@@ -2,7 +2,20 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			account: {
+				username: '',
+				password: ''
+			},
 			tasks: [],
+			newTask: {
+				id: '',
+				title: '',
+				category: '',
+				description: '',
+				location: '',
+				date: '',
+				payment: ''
+			},
 			categories: [
 				{
 					code: 'home',
@@ -85,7 +98,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getCategories: () => {
 				let store = getStore();
-				let categories = [ { code: 'all', name: 'Todas' }, ...store.categories ];
+				let categories = [ ...store.categories ];
+				if (categories.length < 8) categories = [ { id: 0, code: 'all', name: 'Todas' }, ...store.categories ];
 				setStore({ categories });
 			},
 
@@ -109,7 +123,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (category !== undefined) {
 					const store = getStore();
 					let tasks = store.tasks;
-					tasks = store.tasks.filter((task) => task.category === category);
+					tasks = tasks.filter((task) => task.category === category);
 					console.log(tasks);
 					setStore({ tasks });
 					//urlEndpoint += '/category/' + category;
@@ -123,11 +137,40 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 				*/
 			},
-			handleTaskSubmit: (e) => {
+			handleChange: (e) => {
+				let store = getStore();
+				let account = store.account;
+				account[e.currentTarget.name] = e.currentTarget.value;
+				setStore({ account });
+				console.log(account);
+			},
+			handleNewTask: (e) => {
+				let store = getStore();
+				const dataJson = require('./data/sample.json');
+				setStore({ tasks: dataJson });
+
+				let index = store.tasks.length + 1;
+				let newTask = store.newTask;
+				let name = e.currentTarget.name;
+				let value = e.currentTarget.value;
+
+				newTask = {
+					...newTask,
+					id: index,
+					[name]: e.currentTarget.name === 'category' ? parseInt(value) : value
+				};
+
+				let tasks = [ ...store.tasks, newTask ];
+
+				//newTask[e.currentTarget.name] = e.currentTarget.value;
+				setStore({ newTask });
+				setStore({ tasks: tasks, newTask });
+				console.log(tasks);
+			},
+			handleSubmit: (e) => {
 				e.preventDefault();
-				const store = getStore();
+				//const store = getStore();
 				//let tasks = store.tasks;
-				console.log(e);
 			}
 		}
 	};
