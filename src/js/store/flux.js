@@ -120,15 +120,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const dataJson = require('./data/sample.json');
 				setStore({ tasks: dataJson });
 
-				if (category !== undefined) {
+				if (category > 0) {
 					const store = getStore();
 					let tasks = store.tasks;
 					tasks = tasks.filter((task) => task.category === category);
 					console.log(tasks);
 					setStore({ tasks });
 					//urlEndpoint += '/category/' + category;
-				} else {
-					console.log('todas las tareas');
 				}
 
 				/*

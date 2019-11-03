@@ -51,7 +51,7 @@ class Post extends React.Component {
 								<label>Lugar</label>
 								<select onChange={actions.handleNewTask} name="location">
 									<option value="">--Selecciona la comuna donde ocurrirá la tarea--</option>
-									{store.cities.map((city, i) => {
+									{store.cities.map((city) => {
 										return (
 											<option value={city.name} key={city.id}>
 												{city.name}
