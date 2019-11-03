@@ -73,7 +73,7 @@ class Post extends React.Component {
 								<div className="row">
 									<span>$ </span>
 									<input
-										id="offeredPayment"
+										id="payment"
 										name="payment"
 										placeholder="ej: 10.000"
 										required

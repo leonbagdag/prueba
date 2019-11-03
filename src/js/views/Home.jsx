@@ -21,7 +21,7 @@ const Home = () => {
 								location={task.location}
 								date={task.date}
 								payment={task.payment}
-								key={task.id}
+								key={i}
 								categoryIcon={getIconById(store.categories, task.category)}
 							/>
 						);

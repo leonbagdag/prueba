@@ -7,15 +7,15 @@ import { withRouter } from 'react-router';
 import { getIconByCode, listCategories } from '../constants/categories';
 
 const CategoryList = (props) => {
-	let myActions = null;
+	let localActions = null;
 
 	const [ categorySelected, setCategorySelected ] = useState(listCategories.all);
 
 	useEffect(() => {
 		// COMPONENT DID MOUNT
-		if (myActions !== null) {
-			myActions.getTasks();
-			myActions.getCategories();
+		if (localActions !== null) {
+			localActions.getTasks();
+			localActions.getCategories();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -24,7 +24,7 @@ const CategoryList = (props) => {
 			<section className="category-list">
 				<Consumer>
 					{({ store, actions }) => {
-						myActions = actions;
+						localActions = actions;
 						return store.categories.map((category, i) => {
 							let classNameCat = 'category-list__icon';
 							classNameCat += categorySelected === category.code ? ' active' : '';

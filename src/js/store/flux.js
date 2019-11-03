@@ -116,13 +116,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}) */
 
 				//let urlEndpoint = 'api/tasks';
-
 				const dataJson = require('./data/sample.json');
 				setStore({ tasks: dataJson });
+				const store = getStore();
+				let tasks = store.tasks;
+				let newTask = store.newTask;
 
 				if (category > 0) {
-					const store = getStore();
-					let tasks = store.tasks;
 					tasks = tasks.filter((task) => task.category === category);
 					console.log(tasks);
 					setStore({ tasks });
@@ -134,6 +134,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ tasks: data });
 				});
 				*/
+				tasks = newTask.id !== '' ? [ ...tasks, newTask ] : tasks;
+				setStore({ tasks, newTask });
 			},
 			handleChange: (e) => {
 				let store = getStore();
@@ -144,8 +146,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			handleNewTask: (e) => {
 				let store = getStore();
-				const dataJson = require('./data/sample.json');
-				setStore({ tasks: dataJson });
+				let actions = getActions();
+				actions.getTasks();
 
 				let index = store.tasks.length + 1;
 				let newTask = store.newTask;
@@ -160,15 +162,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				let tasks = [ ...store.tasks, newTask ];
 
-				//newTask[e.currentTarget.name] = e.currentTarget.value;
-				setStore({ newTask });
-				setStore({ tasks: tasks, newTask });
+				setStore({ newTask, tasks });
+
 				console.log(tasks);
 			},
 			handleSubmit: (e) => {
 				e.preventDefault();
-				//const store = getStore();
-				//let tasks = store.tasks;
+				const store = getStore();
+				let tasks = store.tasks;
+
+				setStore({ tasks });
 			}
 		}
 	};
