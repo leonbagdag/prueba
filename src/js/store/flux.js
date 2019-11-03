@@ -121,6 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				let tasks = store.tasks;
 				let newTask = store.newTask;
+				tasks = newTask.id !== '' ? [ ...tasks, newTask ] : tasks;
 
 				if (category > 0) {
 					tasks = tasks.filter((task) => task.category === category);
@@ -134,7 +135,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ tasks: data });
 				});
 				*/
-				tasks = newTask.id !== '' ? [ ...tasks, newTask ] : tasks;
+
 				setStore({ tasks, newTask });
 			},
 			handleChange: (e) => {
