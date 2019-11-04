@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Components
 import Login from './views/login';
 import Home from './views/home';
+import History from './views/history';
 import Details from './views/details';
 import Register from './views/register';
 import Post from './views/post';
@@ -24,9 +25,11 @@ class Layout extends React.Component {
 						<Switch>
 							<PublicLayoutRoute exact path="/" component={Login} />
 							<PublicLayoutRoute exact path="/register" component={Register} />
+							<DashboardLayoutRoute path="/tasks/:id" component={Details} />
+							<DashboardLayoutRoute path="/mytasks" component={History} />
 							<DashboardLayoutRoute path="/tasks" component={Home} />
 							<DashboardLayoutRoute path="/new" component={Post} />
-							<DashboardLayoutRoute path="/tasks/:theid" component={Details} />
+
 							<Route render={() => <h1>Esta página no existe :(</h1>} />
 						</Switch>
 					</BrowserRouter>

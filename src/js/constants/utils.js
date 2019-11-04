@@ -24,7 +24,9 @@ export const getMaxDate = () => {
 export const formatDate = (value) => {
 	let newDate = new Date(value);
 	let day = newDate.getDate() + 1;
+	day = day < 10 ? `0${day}` : day;
 	let month = newDate.getMonth() + 1;
+	month = month < 10 ? `0${month}` : month;
 	let year = newDate.getFullYear();
 
 	return `${day}/${month}/${year}`;

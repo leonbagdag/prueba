@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class Task extends React.Component {
 	render() {
 		return (
-			<div className="task">
+			<div className="task pointer" onClick={this.props.onClick}>
 				<main className="task__main">
 					<Category category={this.props.category} icon={this.props.categoryIcon} />
 					<section className="task__main__content">

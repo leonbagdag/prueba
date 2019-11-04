@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				password: ''
 			},
 			tasks: [],
+			currentTask: {},
 			newTask: {
 				id: '',
 				title: '',
@@ -16,6 +17,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				description: '',
 				location: '',
 				date: '',
+				payment: ''
+			},
+			offers: [],
+			newOffer: {
+				description: '',
 				payment: ''
 			},
 			categories: [
@@ -104,7 +110,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (categories.length < 8) categories = [ { id: 0, code: 'all', name: 'Todas' }, ...store.categories ];
 				setStore({ categories });
 			},
+			getTask: (id) => {
+				const store = getStore();
+				let tasks = store.tasks;
 
+				let task = tasks.filter((id) => task.id === id);
+				setStore({ currentTask: task });
+			},
 			getTasks: (category) => {
 				/* let url = baseUrl + '/task'
 				if (category !== undefined) {
@@ -140,12 +152,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore({ tasks, newTask });
 			},
-			handleChange: (e) => {
+			handleLogin: (e) => {
 				let store = getStore();
 				let account = store.account;
 				account[e.currentTarget.name] = e.currentTarget.value;
 				setStore({ account });
 				console.log(account);
+			},
+			handleOffer: (e) => {
+				let store = getStore();
+				let newOffer = store.newOffer;
+
+				newOffer[e.currentTarget.name] = e.currentTarget.value;
+
+				setStore({ newOffer });
 			},
 			handleNewTask: (e) => {
 				let store = getStore();
@@ -178,6 +198,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				let tasks = store.tasks;
 
 				setStore({ tasks });
+			},
+			handleSubmitOffer: (taskId) => {
+				let store = getStore();
+				let newOffer = store.newOffer;
+				let offers = store.offers;
+				newOffer.taskId = taskId;
+
+				offers = [ ...offers, newOffer ];
+				setStore({ offers });
 			}
 		}
 	};

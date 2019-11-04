@@ -30,7 +30,7 @@ class Login extends React.Component {
 										name="username"
 										label="Usuario:"
 										value={store.account.username}
-										onChange={actions.handleChange}
+										onChange={actions.handleLogin}
 										type="text"
 									/>
 
@@ -38,7 +38,7 @@ class Login extends React.Component {
 										name="password"
 										label="Contraseña:"
 										value={store.account.password}
-										onChange={actions.handleChange}
+										onChange={actions.handleLogin}
 										type="password"
 									/>
 
