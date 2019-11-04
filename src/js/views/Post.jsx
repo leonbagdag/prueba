@@ -1,11 +1,15 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
+import { getCurrentDate, getMaxDate } from '../constants/utils';
 //import { Link } from "react-router-dom";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Post extends React.Component {
 	render() {
+		let today = getCurrentDate();
+		let maxDate = getMaxDate();
+
 		return (
 			<Consumer>
 				{({ store, actions }) => {
@@ -44,8 +48,8 @@ class Post extends React.Component {
 									onChange={actions.handleNewTask}
 									type="date"
 									name="date"
-									min="01/11/2019"
-									max="01/01/2020"
+									min={today}
+									max={maxDate}
 									required
 								/>
 								<label>Lugar</label>
