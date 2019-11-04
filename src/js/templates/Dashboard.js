@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Sidebar from '../component/Sidebar';
-import Navbar from '../component/Navbar';
+import Sidebar from '../component/sidebar';
+import Navbar from '../component/navbar';
 
 const DashboardLayout = ({ children }) => (
 	<div>

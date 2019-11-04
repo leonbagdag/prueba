@@ -6,7 +6,8 @@ export const listCategories = {
 	anything: 'anything',
 	paperwork: 'paperwork',
 	errands: 'errands',
-	events: 'events'
+	events: 'events',
+	all: 'all'
 };
 
 const categoriesIcon = [
@@ -37,6 +38,10 @@ const categoriesIcon = [
 	{
 		code: listCategories.anything,
 		icon: 'star'
+	},
+	{
+		code: listCategories.all,
+		icon: 'life-ring'
 	}
 ];
 

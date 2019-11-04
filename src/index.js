@@ -23,7 +23,8 @@ import {
 	faCut,
 	faGlassCheers,
 	faPaperclip,
-	faCalendarCheck
+	faCalendarCheck,
+	faLifeRing
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -46,7 +47,8 @@ library.add(
 	faCut,
 	faGlassCheers,
 	faPaperclip,
-	faCalendarCheck
+	faCalendarCheck,
+	faLifeRing
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));

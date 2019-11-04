@@ -3,30 +3,48 @@ import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Logo from '../component/logo';
+import Input from '../component/input';
+import { withRouter } from 'react-router';
 
 class Login extends React.Component {
 	render() {
 		return (
 			<Consumer>
-				{({ actions }) => {
+				{({ store, actions }) => {
 					return (
 						<div className="container alpha-bg">
 							<div>
-								<form className="login">
+								<form
+									className="login"
+									onSubmit={(e) => {
+										e.preventDefault();
+										this.props.history.push('/tasks');
+									}}
+								>
 									<legend>
-										<h1 className="logo main-logo">Logo</h1>
+										<Logo />
 									</legend>
-									<label>Usuario:</label>
-									<input min="4" max="10" name="user" required />
 
-									<label>Contraseña:</label>
-									<input name="password" type="password" required />
+									<Input
+										name="username"
+										label="Usuario:"
+										value={store.account.username}
+										onChange={actions.handleLogin}
+										type="text"
+									/>
 
-									<Link to="/tasks">
-										<button className="large-btn" type="submit" required>
-											Ingresar
-										</button>
-									</Link>
+									<Input
+										name="password"
+										label="Contraseña:"
+										value={store.account.password}
+										onChange={actions.handleLogin}
+										type="password"
+									/>
+
+									<button className="large-btn" type="submit" required>
+										Ingresar
+									</button>
 								</form>
 								<section className="social-media">
 									<p>o inicia sesión con:</p>
@@ -56,4 +74,4 @@ class Login extends React.Component {
 	}
 }
 
-export default Login;
+export default withRouter(Login);

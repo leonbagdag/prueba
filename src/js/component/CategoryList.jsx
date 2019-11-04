@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import '../../sass/main.scss';
-import Category from '../component/Category';
+import Category from './category';
 import { Consumer } from '../store/appContext';
+import { withRouter } from 'react-router';
 
 import { getIconByCode, listCategories } from '../constants/categories';
 
-const CategoryList = () => {
-	let myActions = null;
+const CategoryList = (props) => {
+	let localActions = null;
 
-	const [ categorySelected, setCategorySelected ] = useState(listCategories.anything);
+	const [ categorySelected, setCategorySelected ] = useState(listCategories.all);
 
 	useEffect(() => {
 		// COMPONENT DID MOUNT
-		if (myActions !== null) {
-			myActions.getTasks();
+		if (localActions !== null) {
+			localActions.getTasks();
+			localActions.getCategories();
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
@@ -22,7 +24,7 @@ const CategoryList = () => {
 			<section className="category-list">
 				<Consumer>
 					{({ store, actions }) => {
-						myActions = actions;
+						localActions = actions;
 						return store.categories.map((category, i) => {
 							let classNameCat = 'category-list__icon';
 							classNameCat += categorySelected === category.code ? ' active' : '';
@@ -49,4 +51,4 @@ const CategoryList = () => {
 	);
 };
 
-export default CategoryList;
+export default withRouter(CategoryList);

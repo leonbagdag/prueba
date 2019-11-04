@@ -30,7 +30,7 @@ a {
 }
 
 .column {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 .wrapper {
@@ -48,11 +48,11 @@ a {
 
 @media (min-width: 768px) {
 	.w-30 {
-		width: 30vw;
+		min-width: 25vw;
 	}
 
 	.w-70 {
-		width: 70vw;
+		min-width: 70vw;
 	}
 }
 
@@ -87,4 +87,16 @@ a {
 	bottom: 1rem;
 	font-size: .8rem;
 	font-weight: 100;
+}
+
+.white-text {
+	color: white;
+}
+
+.sm-text {
+	font-size: .5rem;
+}
+
+.pointer {
+	cursor: pointer;
 }

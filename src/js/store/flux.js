@@ -1,8 +1,29 @@
 //const baseUrl = 'http://localhost:3000/api';
+import { formatDate } from '../constants/utils';
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			account: {
+				username: '',
+				password: ''
+			},
 			tasks: [],
+			currentTask: {},
+			newTask: {
+				id: '',
+				title: '',
+				category: '',
+				description: '',
+				location: '',
+				date: '',
+				payment: ''
+			},
+			offers: [],
+			newOffer: {
+				description: '',
+				payment: ''
+			},
 			categories: [
 				{
 					code: 'home',
@@ -36,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					code: 'anything',
-					name: 'Todas',
+					name: 'Otras',
 					id: 7
 				}
 			],
@@ -83,6 +104,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 			},*/
 
+			getCategories: () => {
+				let store = getStore();
+				let categories = [ ...store.categories ];
+				if (categories.length < 8) categories = [ { id: 0, code: 'all', name: 'Todas' }, ...store.categories ];
+				setStore({ categories });
+			},
+			getTask: (id) => {
+				const store = getStore();
+				let tasks = store.tasks;
+
+				let task = tasks.filter((id) => task.id === id);
+				setStore({ currentTask: task });
+			},
 			getTasks: (category) => {
 				/* let url = baseUrl + '/task'
 				if (category !== undefined) {
@@ -96,19 +130,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}) */
 
 				//let urlEndpoint = 'api/tasks';
-
 				const dataJson = require('./data/sample.json');
 				setStore({ tasks: dataJson });
+				const store = getStore();
+				let tasks = store.tasks;
+				let newTask = store.newTask;
+				tasks = newTask.id !== '' ? [ ...tasks, newTask ] : tasks;
 
-				if (category !== undefined) {
-					const store = getStore();
-					let tasks = store.tasks;
-					tasks = store.tasks.filter((task) => task.category === category);
+				if (category > 0) {
+					tasks = tasks.filter((task) => task.category === category);
 					console.log(tasks);
 					setStore({ tasks });
 					//urlEndpoint += '/category/' + category;
-				} else {
-					console.log('todas las tareas');
 				}
 
 				/*
@@ -116,12 +149,64 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ tasks: data });
 				});
 				*/
+
+				setStore({ tasks, newTask });
 			},
-			handleTaskSubmit: (e) => {
+			handleLogin: (e) => {
+				let store = getStore();
+				let account = store.account;
+				account[e.currentTarget.name] = e.currentTarget.value;
+				setStore({ account });
+				console.log(account);
+			},
+			handleOffer: (e) => {
+				let store = getStore();
+				let newOffer = store.newOffer;
+
+				newOffer[e.currentTarget.name] = e.currentTarget.value;
+
+				setStore({ newOffer });
+			},
+			handleNewTask: (e) => {
+				let store = getStore();
+				let actions = getActions();
+				actions.getTasks();
+
+				let index = store.tasks.length + 1;
+				let newTask = store.newTask;
+				let name = e.currentTarget.name;
+				let value = e.currentTarget.value;
+
+				value = name === 'category' ? parseInt(value) : value;
+				value = name === 'date' ? formatDate(value) : value;
+
+				newTask = {
+					...newTask,
+					id: index,
+					[name]: value
+				};
+
+				let tasks = [ ...store.tasks, newTask ];
+
+				setStore({ newTask, tasks });
+
+				console.log(tasks);
+			},
+			handleSubmit: (e) => {
 				e.preventDefault();
 				const store = getStore();
-				//let tasks = store.tasks;
-				console.log(e);
+				let tasks = store.tasks;
+
+				setStore({ tasks });
+			},
+			handleSubmitOffer: (taskId) => {
+				let store = getStore();
+				let newOffer = store.newOffer;
+				let offers = store.offers;
+				newOffer.taskId = taskId;
+
+				offers = [ ...offers, newOffer ];
+				setStore({ offers });
 			}
 		}
 	};
