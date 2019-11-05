@@ -6,6 +6,16 @@ import { getCurrentDate, getMaxDate } from '../constants/utils';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Post extends React.Component {
+	store = {
+		id: '',
+		title: '',
+		category: '',
+		description: '',
+		location: '',
+		date: '',
+		payment: ''
+	};
+
 	render() {
 		let today = getCurrentDate();
 		let maxDate = getMaxDate();
@@ -19,6 +29,7 @@ class Post extends React.Component {
 								className="post"
 								onSubmit={(e) => {
 									e.preventDefault();
+									actions.handleTaskSubmit();
 									this.props.history.push('/tasks');
 								}}
 							>
@@ -51,6 +62,10 @@ class Post extends React.Component {
 									min={today}
 									max={maxDate}
 									required
+									onKeyDown={(e) => {
+										e.preventDefault();
+										return false;
+									}}
 								/>
 								<label>Lugar</label>
 								<select onChange={actions.handleNewTask} name="location">

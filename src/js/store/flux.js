@@ -186,20 +186,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 					[name]: value
 				};
 
-				let tasks = [ ...store.tasks, newTask ];
+				//let tasks = [ ...store.tasks, newTask ];
 
-				setStore({ newTask, tasks });
-
-				console.log(tasks);
+				setStore({ newTask });
 			},
-			handleSubmit: (e) => {
-				e.preventDefault();
-				const store = getStore();
+			handleTaskSubmit: (e) => {
+				let store = getStore();
+				let newTask = store.newTask;
 				let tasks = store.tasks;
 
+				tasks = [ ...tasks, newTask ];
 				setStore({ tasks });
 			},
-			handleSubmitOffer: (taskId) => {
+			handleOfferSubmit: (taskId) => {
 				let store = getStore();
 				let newOffer = store.newOffer;
 				let offers = store.offers;

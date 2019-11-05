@@ -5,22 +5,25 @@ import '../../sass/main.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Details extends React.Component {
-	/* localActions = null;
+	constructor() {
+		super();
+		this.localActions = null;
+	}
 
 	componentDidMount() {
 		let id = this.props.match.params.id;
-		if (localActions !== null) {
-			localActions.getTasks();
-			localActions.getTask(id);
+		if (this.localActions !== null) {
+			this.localActions.getTasks();
+			//this.localActions.getTask(id);
 		}
-		console.log(localActions);
-	} */
+		console.log(this.localActions);
+	}
 
 	render() {
 		return (
 			<Consumer>
 				{({ store, actions }) => {
-					//localActions = actions;
+					this.localActions = actions;
 					let id = this.props.match.params.id - 1;
 					let tasks = store.tasks;
 					let filtered = tasks.filter((task) => id === task.id);
@@ -58,7 +61,7 @@ class Details extends React.Component {
 							<Offer
 								id={id}
 								handleOffer={actions.handleOffer}
-								handleSubmit={actions.handleSubmitOffer}
+								handleSubmit={actions.handleOfferSubmit}
 								payment={tasks[id].payment}
 							/>
 						</main>
