@@ -152,12 +152,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore({ tasks, newTask });
 			},
-			handleLogin: (e) => {
-				let store = getStore();
-				let account = store.account;
-				account[e.currentTarget.name] = e.currentTarget.value;
+			handleLogin: (state) => {
+				let account = state;
 				setStore({ account });
-				console.log(account);
 			},
 			handleOffer: (e) => {
 				let store = getStore();
