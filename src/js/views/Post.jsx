@@ -4,16 +4,12 @@ import { Consumer } from '../store/appContext';
 import { getCurrentDate, getMaxDate } from '../constants/utils';
 //import { Link } from "react-router-dom";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Input from '../component/input';
 
-class Post extends React.Component {
-	store = {
-		id: '',
-		title: '',
-		category: '',
-		description: '',
-		location: '',
-		date: '',
-		payment: ''
+class Post extends Input {
+	hideCalendar = (e) => {
+		e.preventDefault();
+		return false;
 	};
 
 	render() {
@@ -29,22 +25,18 @@ class Post extends React.Component {
 								className="post"
 								onSubmit={(e) => {
 									e.preventDefault();
-									actions.handleTaskSubmit();
+									actions.handleTaskSubmit(this.state.data);
 									this.props.history.push('/tasks');
 								}}
 							>
 								<legend>
 									<h2>Crea una nueva tarea</h2>
 								</legend>
-								<label>Título</label>
-								<input
-									onChange={actions.handleNewTask}
-									name="title"
-									placeholder="Describe brevemente qué necesitas"
-									required
-								/>
+
+								{this.renderInput('title', 'Título:', 'text', 'Describe brevemente qué necesitas')}
+
 								<label>Categoría</label>
-								<select name="category" onChange={actions.handleNewTask}>
+								<select name="category" onChange={this.handleChange}>
 									<option value="">--Selecciona la categoría correspondiente--</option>
 									{store.categories.map((category, i) => {
 										return (
@@ -54,21 +46,19 @@ class Post extends React.Component {
 										);
 									})}}
 								</select>
-								<label>Fecha</label>
-								<input
-									onChange={actions.handleNewTask}
-									type="date"
-									name="date"
-									min={today}
-									max={maxDate}
-									required
-									onKeyDown={(e) => {
-										e.preventDefault();
-										return false;
-									}}
-								/>
+
+								{this.renderInput(
+									'date',
+									'Fecha:',
+									'date',
+									'Selecciona la fecha de tu tarea',
+									today,
+									maxDate,
+									this.hideCalendar
+								)}
+
 								<label>Lugar</label>
-								<select onChange={actions.handleNewTask} name="location">
+								<select onChange={this.handleChange} name="location">
 									<option value="">--Selecciona la comuna donde ocurrirá la tarea--</option>
 									{store.cities.map((city) => {
 										return (
@@ -81,22 +71,23 @@ class Post extends React.Component {
 								<label>Descripción</label>
 								<textarea
 									name="description"
-									minLength="20"
+									minLength="10"
 									maxLength="200"
 									rows="5"
 									placeholder="Explica los detalles de tu tarea: en qué consiste, cuánto tiempo durará, qué esperas que se cumpla"
 									required
-									onChange={actions.handleNewTask}
+									onChange={this.handleChange}
 								/>
 								<label>Pago ofrecido</label>
 								<div className="row">
 									<span>$ </span>
+
 									<input
-										id="payment"
+										className="payment"
 										name="payment"
 										placeholder="ej: 10.000"
 										required
-										onChange={actions.handleNewTask}
+										onChange={this.handleChange}
 									/>
 								</div>
 

@@ -1,39 +1,39 @@
 form {
-  padding: 1rem;
-  box-sizing: border-box;
-  color: $darker-gray;
+	padding: 1rem;
+	box-sizing: border-box;
+	color: $darker-gray;
 }
 
 label {
-  display: block;
-  padding: 1.5rem 0 0.5rem 0;
+	display: block;
+	line-height: 2.5rem;
 }
 
 input,
 select,
 textarea {
-  padding: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid $light-gray;
-  color: $medium-gray;
-  background-color: white;
-  border-radius: 5px;
+	padding: 0.5rem;
+	width: 100%;
+	box-sizing: border-box;
+	border: 1px solid $light-gray;
+	color: $medium-gray;
+	background-color: white;
+	border-radius: 5px;
 }
 
 select {
-  height: 2.2rem;
+	height: 2.2rem;
 }
 
 input:hover {
-  border: 1px solid $brand-color;
+	border: 1px solid $brand-color;
 }
 
-#payment {
-  min-width: 94%;
-  margin-left: 0.4rem;
+.payment {
+	min-width: 94%;
+	margin-left: 0.4rem;
 }
 
 ::placeholder {
-  color: $medium-gray;
+	color: $medium-gray;
 }

@@ -35,6 +35,7 @@ class Offer extends React.Component {
 						<input
 							id="recievedPayment"
 							name="payment"
+							className="payment"
 							placeholder={this.props.payment}
 							onChange={(e) => this.props.handleOffer(e)}
 							required

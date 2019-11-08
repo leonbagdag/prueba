@@ -1,10 +1,10 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
+import { withRouter } from 'react-router';
 
 import Logo from '../component/logo';
 import Input from '../component/input';
-import { withRouter } from 'react-router';
 import SocialMedia from '../component/socialMedia';
 
 class Login extends Input {

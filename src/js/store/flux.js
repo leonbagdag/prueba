@@ -1,5 +1,4 @@
 //const baseUrl = 'http://localhost:3000/api';
-import { formatDate } from '../constants/utils';
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -93,17 +92,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			/*handleSubmit: (e) => {
-				e.preventDefault();
-				const data = new FormData(e.target);
-
-				fetch('url', {
-					method: 'POST',
-					body: data
-				});
-			},*/
-
 			getCategories: () => {
 				let store = getStore();
 				let categories = [ ...store.categories ];
@@ -113,8 +101,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getTask: (id) => {
 				const store = getStore();
 				let tasks = store.tasks;
-
-				let task = tasks.filter((id) => task.id === id);
+				let task = tasks.filter((item) => item.id === id);
 				setStore({ currentTask: task });
 			},
 			getTasks: (category) => {
@@ -131,11 +118,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//let urlEndpoint = 'api/tasks';
 				const dataJson = require('./data/sample.json');
-				setStore({ tasks: dataJson });
 				const store = getStore();
 				let tasks = store.tasks;
-				let newTask = store.newTask;
-				tasks = newTask.id !== '' ? [ ...tasks, newTask ] : tasks;
+				if (tasks.length === 0) {
+					tasks = [ ...dataJson ];
+				}
+
+				setStore({ tasks });
 
 				if (category > 0) {
 					tasks = tasks.filter((task) => task.category === category);
@@ -149,12 +138,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					setStore({ tasks: data });
 				});
 				*/
-
-				setStore({ tasks, newTask });
 			},
 			handleLogin: (state) => {
 				let account = state;
 				setStore({ account });
+			},
+			handleTaskSubmit: (state) => {
+				let newTask = state;
+				let store = getStore();
+				let tasks = store.tasks;
+				let index = tasks.length + 1;
+
+				newTask = {
+					id: index,
+					...newTask
+				};
+				tasks = [ ...tasks, newTask ];
+
+				setStore({ tasks });
 			},
 			handleOffer: (e) => {
 				let store = getStore();
@@ -164,37 +165,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				setStore({ newOffer });
 			},
-			handleNewTask: (e) => {
-				let store = getStore();
-				let actions = getActions();
-				actions.getTasks();
 
-				let index = store.tasks.length + 1;
-				let newTask = store.newTask;
-				let name = e.currentTarget.name;
-				let value = e.currentTarget.value;
-
-				value = name === 'category' ? parseInt(value) : value;
-				value = name === 'date' ? formatDate(value) : value;
-
-				newTask = {
-					...newTask,
-					id: index,
-					[name]: value
-				};
-
-				//let tasks = [ ...store.tasks, newTask ];
-
-				setStore({ newTask });
-			},
-			handleTaskSubmit: (e) => {
-				let store = getStore();
-				let newTask = store.newTask;
-				let tasks = store.tasks;
-
-				tasks = [ ...tasks, newTask ];
-				setStore({ tasks });
-			},
 			handleOfferSubmit: (taskId) => {
 				let store = getStore();
 				let newOffer = store.newOffer;

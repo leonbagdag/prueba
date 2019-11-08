@@ -2,70 +2,68 @@ import React from 'react';
 import Offer from '../component/offer';
 import { Consumer } from '../store/appContext';
 import '../../sass/main.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Details extends React.Component {
 	constructor() {
 		super();
-		this.localActions = null;
+		this.store = null;
+		this.actions = null;
 	}
 
-	componentDidMount() {
-		let id = this.props.match.params.id;
-		if (this.localActions !== null) {
-			this.localActions.getTasks();
-			//this.localActions.getTask(id);
+	async componentDidMount() {
+		let id = parseInt(this.props.match.params.id);
+		if (this.actions !== null) {
+			await this.actions.getTasks();
+			await this.actions.getTask(id);
 		}
-		console.log(this.localActions);
 	}
 
 	render() {
 		return (
 			<Consumer>
 				{({ store, actions }) => {
-					this.localActions = actions;
-					let id = this.props.match.params.id - 1;
-					let tasks = store.tasks;
-					let filtered = tasks.filter((task) => id === task.id);
-					console.log(filtered, id);
+					this.actions = actions;
+					this.store = store;
+					let task = store.currentTask[0];
+					let id = parseInt(this.props.match.params.id);
 
-					return (
-						<main className="w-70">
-							<header>
-								<h2 className="white-text">{tasks[id].title}</h2>
-							</header>
-							<div className="row details">
-								<div className="details__date">
-									<h3>¿Cuándo?</h3>
-									<p>{tasks[id].date}</p>
-								</div>
-								<div className="details__location">
-									<h3>¿Dónde?</h3>
-									<p>{tasks[id].location}</p>
-								</div>
-								<div className="details__pin">
-									<FontAwesomeIcon icon="map-marker-alt" />
-									<p className="white-text">Mapa</p>
-								</div>
-							</div>
-							<main className="details__description">
-								<div className="row details__title">
-									<h3>Descripción</h3>
-									<div className="details__price">
-										<small>Pago ofrecido</small>
-										<h3>$ {tasks[id].payment}</h3>
+					if (task !== undefined) {
+						return (
+							<main className="w-70">
+								<header>
+									<h2 className="white-text">{task.title}</h2>
+								</header>
+								<div className="row details">
+									<div className="details__header">
+										<h3>¿Cuándo?</h3>
+										<p>{task.date}</p>
+									</div>
+									<div className="details__header details__header--middle">
+										<h3>¿Dónde?</h3>
+										<p>{task.location}</p>
+									</div>
+									<div className="details__header">
+										<h3>Pago ofrecido:</h3>
+										<p>$ {task.payment}</p>
 									</div>
 								</div>
-								<p className="details__text">{tasks[id].description}</p>
+
+								<div className="details__description">
+									<h3>Descripción</h3>
+									<p className="details__text">{task.description}</p>
+								</div>
+
+								<Offer
+									id={id}
+									handleOffer={actions.handleOffer}
+									handleSubmit={actions.handleOfferSubmit}
+									payment={task.payment}
+								/>
 							</main>
-							<Offer
-								id={id}
-								handleOffer={actions.handleOffer}
-								handleSubmit={actions.handleOfferSubmit}
-								payment={tasks[id].payment}
-							/>
-						</main>
-					);
+						);
+					}
+
+					return <h1>La tarea que buscas no existe :( </h1>;
 				}}
 			</Consumer>
 		);

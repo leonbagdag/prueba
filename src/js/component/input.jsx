@@ -1,4 +1,5 @@
 import React from 'react';
+import { formatDate } from '../constants/utils';
 
 
 class Input extends React.Component {
@@ -8,14 +9,18 @@ class Input extends React.Component {
     
     handleChange = (e) => {
 		let { data } = this.state;
-		data[e.currentTarget.name] = e.currentTarget.value;
+        let name = e.currentTarget.name;
+        let value = e.currentTarget.value;
+        value = name === 'category' ? parseInt(value) : value;
+		value = name === 'date' ? formatDate(value) : value;
+        data[name] = value;
 		this.setState({ data });
 	};
 
-	renderInput(name, label, type = 'text') {
+	renderInput(name, label, type = 'text', placeholder='', min=4, max=20) {
 		if (this.store !== null && this.actions !== null) {
 			return (
-				<Input name={name} label={label} value={this.state[name]} onChange={this.handleChange} type={type} />
+				<Input name={name} label={label} value={this.state[name]} onChange={this.handleChange} type={type} placeholder={placeholder} min={min} max={max}  />
 			);
 		}
 	}
@@ -27,20 +32,14 @@ class Input extends React.Component {
     }
     
     render() { 
-        const { name, label, value, type = "text", onChange, min=4, max=20, placeholder="" } = this.props;
+        const { name, label, ...rest} = this.props;
         
         return (<>
             <label htmlFor={name}>{label}</label>
             <input
-                value={value}
-                onChange={onChange}
+               {...rest}
                 id={name}
-                min={min}
-                max={max}
                 name={name}
-                type={type}
-                placeholder={placeholder}
-                
                 required
             />
             </>  );
