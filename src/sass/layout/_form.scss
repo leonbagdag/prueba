@@ -37,3 +37,12 @@ input:hover {
 ::placeholder {
 	color: $medium-gray;
 }
+
+.error {
+	background: #f39e9ea6;
+	color: #903333;
+	font-size: .7rem;
+	padding: .3rem;
+	margin-top: 2px;
+	border-radius: 4px;
+}

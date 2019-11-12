@@ -5,6 +5,15 @@ import Logo from '../component/logo';
 const { validate, format } = require('rut.js');
 
 class Register extends React.Component {
+	state = {
+		name: '',
+		lastname: '',
+		rut: '',
+		email: '',
+		username: '',
+		password: ''
+	};
+
 	handleRegister = (e) => {
 		e.preventDefault();
 	};
@@ -45,7 +54,7 @@ class Register extends React.Component {
 								/>
 
 								<label>Email:</label>
-								<input name="mail" type="email" required />
+								<input name="email" type="email" required />
 
 								<label>Usuario:</label>
 								<input name="username" required />

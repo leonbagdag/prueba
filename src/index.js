@@ -24,7 +24,8 @@ import {
 	faGlassCheers,
 	faPaperclip,
 	faCalendarCheck,
-	faLifeRing
+	faThumbtack,
+	faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -48,7 +49,8 @@ library.add(
 	faGlassCheers,
 	faPaperclip,
 	faCalendarCheck,
-	faLifeRing
+	faThumbtack,
+	faExclamationCircle
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));

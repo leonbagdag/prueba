@@ -41,7 +41,7 @@ const categoriesIcon = [
 	},
 	{
 		code: listCategories.all,
-		icon: 'life-ring'
+		icon: 'thumbtack'
 	}
 ];
 
