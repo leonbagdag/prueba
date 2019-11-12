@@ -2,11 +2,33 @@
 	font-family: $raleway;
 }
 
+// Alignment & Position
 .align-center {
 	align-self: center;
 	justify-self: center;
 }
 
+.bottom {
+	position: absolute;
+	bottom: 1rem;
+	font-size: .8rem;
+	font-weight: 100;
+}
+
+.centered {
+	width: 100%;
+}
+
+.justify-between {
+	justify-content: space-between;
+}
+
+// Borders
+.border-bottom {
+	border-bottom: $border;
+}
+
+// Text
 .link,
 a {
 	color: $brand-color;
@@ -14,12 +36,19 @@ a {
 	text-decoration: none;
 }
 
-// Display
-.row {
-	display: flex;
-	align-items: center;
+.sm-text {
+	font-size: .5rem;
 }
 
+.text-center {
+	text-align: center;
+}
+
+.white-text {
+	color: white;
+}
+
+// Wrappers
 .container {
 	display: flex;
 	align-content: center;
@@ -33,15 +62,17 @@ a {
 	min-height: 100vh;
 }
 
+.row {
+	display: flex;
+	align-items: center;
+}
+
 .wrapper {
 	background-color: white;
 	padding: 1rem;
 }
 
-.justify-between {
-	justify-content: space-between;
-}
-
+// Sizing
 .w-70 {
 	width: 100%;
 }
@@ -56,6 +87,7 @@ a {
 	}
 }
 
+// Hidden elements (display none)
 .d-none-xs {
 	display: none;
 
@@ -70,33 +102,12 @@ a {
 	}
 }
 
-.centered {
-	width: 100%;
-}
-
-.border-bottom {
-	border-bottom: $border;
-}
-
-.App {
-	display: flex;
-}
-
-.bottom {
-	position: absolute;
-	bottom: 1rem;
-	font-size: .8rem;
-	font-weight: 100;
-}
-
-.white-text {
-	color: white;
-}
-
-.sm-text {
-	font-size: .5rem;
-}
-
+// Elements
 .pointer {
 	cursor: pointer;
+}
+
+// Main
+.App {
+	display: flex;
 }

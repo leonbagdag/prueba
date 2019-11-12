@@ -1,17 +1,19 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Logo from '../component/logo';
-import Input from '../component/input';
 import { withRouter } from 'react-router';
 
-class Login extends React.Component {
+import Logo from '../component/logo';
+import Input from '../component/input';
+import SocialMedia from '../component/socialMedia';
+
+class Login extends Input {
 	render() {
 		return (
 			<Consumer>
 				{({ store, actions }) => {
+					this.store = store;
+					this.actions = actions;
 					return (
 						<div className="container alpha-bg">
 							<div>
@@ -19,52 +21,17 @@ class Login extends React.Component {
 									className="login"
 									onSubmit={(e) => {
 										e.preventDefault();
+										actions.handleLogin(this.state.data);
 										this.props.history.push('/tasks');
 									}}
 								>
-									<legend>
-										<Logo />
-									</legend>
+									<Logo className="text-center" />
 
-									<Input
-										name="username"
-										label="Usuario:"
-										value={store.account.username}
-										onChange={actions.handleLogin}
-										type="text"
-									/>
-
-									<Input
-										name="password"
-										label="Contraseña:"
-										value={store.account.password}
-										onChange={actions.handleLogin}
-										type="password"
-									/>
-
-									<button className="large-btn" type="submit" required>
-										Ingresar
-									</button>
+									{this.renderInput('username', 'Usuario:')}
+									{this.renderInput('password', 'Contraseña:', 'password')}
+									{this.renderButton('Ingresar')}
 								</form>
-								<section className="social-media">
-									<p>o inicia sesión con:</p>
-									<div className="row social-media__buttons">
-										<button className="social-media-btn facebook" type="submit">
-											<FontAwesomeIcon icon={[ 'fab', 'facebook-f' ]} />
-										</button>
-										<button className="social-media-btn google" type="submit">
-											<FontAwesomeIcon icon={[ 'fab', 'google' ]} />
-										</button>
-									</div>
-									<div className="login__outro">
-										<small>
-											¿No tienes cuenta?{' '}
-											<Link to="/register">
-												<span className="link">Crea una aquí</span>
-											</Link>
-										</small>
-									</div>
-								</section>
+								<SocialMedia />
 							</div>
 						</div>
 					);

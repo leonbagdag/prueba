@@ -2,12 +2,9 @@ import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
 import Logo from '../component/logo';
-const { validate, format } = require('rut.js');
+import Input from '../component/input';
 
-class Register extends React.Component {
-	handleRegister = (e) => {
-		e.preventDefault();
-	};
+class Register extends Input {
 	render() {
 		return (
 			<Consumer>
@@ -15,57 +12,29 @@ class Register extends React.Component {
 					return (
 						<div>
 							<form className="register" onSubmit={this.handleRegister}>
-								<legend>
-									<Logo />
-								</legend>
+								<Logo />
 
-								<label>Nombre:</label>
-								<input name="name" required />
+								{this.renderInput('name', 'Nombre:')}
+								{this.renderError('name')}
+								{this.renderInput('lastname', 'Apellido:')}
+								{this.renderError('lastname')}
+								{this.renderInput('rut', 'RUT:')}
+								{this.renderError('rut')}
+								{this.renderInput('email', 'Mail:', 'email')}
+								{this.renderError('email')}
+								{this.renderInput('username', 'Nombre de usuario:')}
+								{this.renderError('username')}
+								{this.renderInput('password', 'Contraseña:', 'password')}
+								{this.renderError('password')}
+								{this.renderInput('thumbnail', 'Foto de perfil:', 'file')}
+								{this.renderError('thumbnail')}
 
-								<label>Apellido:</label>
-								<input name="lastname" required />
-
-								<label>RUT:</label>
-								<input
-									type="text"
-									name="rut"
-									required="required"
-									pattern="\d{3,8}-[\d|kK]{1}"
-									minLength="10"
-									maxLength="12"
-									title="Debe ser un Rut válido"
-									onKeyUp={(e) => {
-										e.target.value = format(e.target.value);
-									}}
-									onBlur={(e) => {
-										validate(e.target.value)
-											? alert('El rut es valido')
-											: alert('El rut no es valido');
-									}}
-								/>
-
-								<label>Email:</label>
-								<input name="mail" type="email" required />
-
-								<label>Usuario:</label>
-								<input name="username" required />
-
-								<label>Contraseña:</label>
-								<input name="password" type="password" required />
-
-								<label>Foto de perfil:</label>
-								<input name="thumbnail" type="file" accept="image/*" required />
-
-								<button
-									className="large-btn"
-									type="submit"
-									onClick={(e) => {
-										e.preventDefault();
-										//this.props.history.push('/tasks');
-									}}
-								>
-									Crear cuenta
-								</button>
+								{Object.keys(this.state.data).length >= 6 &&
+								Object.keys(this.state.errors).length === 0 ? (
+									this.renderButton('Crear cuenta')
+								) : (
+									this.renderDisabledButton('Crear cuenta')
+								)}
 							</form>
 						</div>
 					);

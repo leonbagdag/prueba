@@ -26,7 +26,7 @@ const CategoryList = (props) => {
 					{({ store, actions }) => {
 						localActions = actions;
 						return store.categories.map((category, i) => {
-							let classNameCat = 'category-list__icon';
+							let classNameCat = 'category-list__icon pointer';
 							classNameCat += categorySelected === category.code ? ' active' : '';
 
 							return (

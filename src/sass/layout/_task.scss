@@ -1,9 +1,18 @@
+.task-holder {
+	display: flex;
+	border-bottom: 1px solid $light-gray;
+
+	h5 {
+		color: $secondary-color;
+		padding-top: 1.5rem;
+	}
+}
+
 .task {
 	color: $dark-gray;
 	padding: 1rem;
-	display: flex;
 	justify-content: space-between;
-	border-bottom: 1px solid $light-gray;
+	width: 83%;
 
 	&__main {
 		display: flex;
@@ -17,11 +26,6 @@
 
 	&__row {
 		justify-content: space-between;
-	}
-
-	&__price h5 {
-		color: $secondary-color;
-		text-align: right;
 	}
 
 	&__details {
@@ -41,22 +45,17 @@
 
 .details {
 	align-items: initial;
-	&__date,
-	&__location,
-	&__pin {
+	&__header {
 		padding: 1rem;
 		text-align: center;
-	}
-
-	&__date,
-	&__location {
 		width: 40%;
 		color: $darker-gray;
 		border-bottom: 1px solid $light-gray;
-	}
 
-	&__location {
-		border-left: 1px solid $light-gray;
+		&--middle {
+			border-left: 1px solid $light-gray;
+			border-right: 1px solid $light-gray;
+		}
 	}
 
 	&__pin {
@@ -67,29 +66,6 @@
 
 	&__description {
 		padding: 1rem;
-		color: $darker-gray;
-		padding-bottom: 1rem;
-		display: flex;
-		flex-wrap: wrap;
-		margin-bottom: 2rem;
-
-		h3 {
-			align-self: flex-end;
-		}
-	}
-
-	&__title {
-		width: 100%;
-		padding-bottom: 1rem;
-		display: flex;
-		justify-content: space-between;
-	}
-
-	&__price {
-		border: 1px solid $secondary-color;
-		color: $secondary-color;
-		padding: 0.5rem;
-		border-radius: 5px;
-		text-align: center;
+		line-height: 2rem;
 	}
 }
