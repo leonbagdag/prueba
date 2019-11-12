@@ -2,8 +2,6 @@ import React from 'react';
 import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
 import { getCurrentDate, getMaxDate } from '../constants/utils';
-//import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../component/input';
 
 class Post extends Input {
@@ -34,9 +32,7 @@ class Post extends Input {
 								</legend>
 
 								{this.renderInput('title', 'Título:', 'text', 'Describe brevemente qué necesitas')}
-								<div className={this.state.errors.title !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.title}
-								</div>
+								{this.renderError('title')}
 
 								<label>Categoría</label>
 								<select name="category" onChange={this.handleChange} onBlur={this.validation}>
@@ -51,9 +47,7 @@ class Post extends Input {
 											);
 										})}}
 								</select>
-								<div className={this.state.errors.category !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.category}
-								</div>
+								{this.renderError('category')}
 
 								{this.renderInput(
 									'date',
@@ -65,9 +59,8 @@ class Post extends Input {
 									today,
 									this.hideCalendar
 								)}
-								<div className={this.state.errors.date !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.date}
-								</div>
+
+								{this.renderError('date')}
 
 								<label>Lugar</label>
 								<select onChange={this.handleChange} onBlur={this.validation} name="location">
@@ -80,9 +73,7 @@ class Post extends Input {
 										);
 									})}}
 								</select>
-								<div className={this.state.errors.location !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.location}
-								</div>
+								{this.renderError('location')}
 
 								<label>Descripción</label>
 								<textarea
@@ -94,9 +85,7 @@ class Post extends Input {
 									onChange={this.handleChange}
 									onBlur={this.validation}
 								/>
-								<div className={this.state.errors.description !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.description}
-								</div>
+								{this.renderError('description')}
 
 								<label>Pago ofrecido</label>
 								<div className="row">
@@ -110,15 +99,13 @@ class Post extends Input {
 										onBlur={this.validation}
 									/>
 								</div>
-								<div className={this.state.errors.payment !== undefined ? 'error' : 'display-none'}>
-									<FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors.payment}
-								</div>
+								{this.renderError('payment')}
 
 								{Object.keys(this.state.data).length === 6 &&
 								Object.keys(this.state.errors).length === 0 ? (
-									this.renderSubmitButton()
+									this.renderButton('Enviar')
 								) : (
-									this.renderDisabledButton()
+									this.renderDisabledButton('Enviar')
 								)}
 
 								<div className="row go-back">

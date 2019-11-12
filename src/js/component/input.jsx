@@ -1,5 +1,7 @@
 import React from 'react';
 import { formatDate, getCurrentDate, getMaxDate } from '../constants/utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+const { validate, format } = require('rut.js');
 
 class Input extends React.Component {
     state = { 
@@ -29,7 +31,7 @@ class Input extends React.Component {
         let name = e.target.name;
         let errors = {...this.state.errors};
 
-        if (input === "") {
+        if (name !== 'thumbnail' && input === "") {
             errors[name] = 'No puedes dejar este campo vacío';
             this.setState({errors});
         }
@@ -45,9 +47,7 @@ class Input extends React.Component {
             if (input.length > 50) {
                 errors[name] = 'El título es demasiado largo. Intenta acortarlo un poco';
                 return this.setState({errors});
-            } 
-             
-            
+            }    
         } 
 
 
@@ -75,13 +75,73 @@ class Input extends React.Component {
                 errors[name] = 'El pago mínimo que puedes ofrecer es $5.000';
                 this.setState({errors});
             } 
-
             
             this.setState({errors});   
-        }
+        }    
 
 
+        if (name === 'username') {
         
+            if (input.length > 0 && input.length < 4) {
+                errors[name] = 'Tu nombre de usuario debe tener al menos 4 caracteres';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        }    
+
+        if (name === 'name') {
+        
+            if (input.length > 0 && input.length < 2) {
+                errors[name] = 'El nombre ingresado es demasiado corto, revisa que la información sea correcta';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        } 
+
+        if (name === 'lastname') {
+        
+            if (input.length > 0 && input.length < 2) {
+                errors[name] = 'El nombre ingresado es demasiado corto, revisa que la información sea correcta';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        } 
+
+
+        if (name === 'password') {
+        
+            if (input.length > 0 && input.length < 4) {
+                errors[name] = 'Tu contraseña debe ser de al menos 4 caracteres';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        } 
+
+
+        if (name === 'rut') {
+            input = format(input);
+
+            if (!validate(input)) {
+                errors[name] = 'El RUT ingresado es incorrecto';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        } 
+
+
+        if (name === 'thumbnail' && input !== '') {
+            input = input.search(/.[jp|sv|pn]g/)
+            
+            if (input === -1) {
+                errors[name] = 'Debes elegir una imagen en formato .jpg, .png o .svg';
+                this.setState({errors});
+            }
+        } 
         
     }
 
@@ -98,18 +158,17 @@ class Input extends React.Component {
         {label}
     </button>)
     }
-    
-    renderSubmitButton() {
-        return (<button className="large-btn" type="submit">
-        Enviar
+
+    renderDisabledButton(label) {
+        return (<button className="large-btn disabled" type="submit" disabled>
+        {label}
     </button>)
     }
 
-
-    renderDisabledButton() {
-        return (<button className="large-btn disabled" type="submit" disabled>
-        Enviar
-    </button>)
+    renderError(name) {
+        return (<div className={this.state.errors[name] !== undefined ? 'error' : 'display-none'}>
+        <FontAwesomeIcon icon="exclamation-circle" /> {this.state.errors[name]}
+    </div>)
     }
 
     render() { 
