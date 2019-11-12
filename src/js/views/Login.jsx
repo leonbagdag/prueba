@@ -7,6 +7,8 @@ import Logo from '../component/logo';
 import Input from '../component/input';
 import SocialMedia from '../component/socialMedia';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class Login extends Input {
 	render() {
 		return (
@@ -16,7 +18,12 @@ class Login extends Input {
 					this.actions = actions;
 					return (
 						<div className="container alpha-bg">
-							<div>
+							<main>
+								<header className="full-logo">
+									<FontAwesomeIcon icon="thumbtack" size="lg" />
+									<Logo />
+								</header>
+
 								<form
 									className="login"
 									onSubmit={(e) => {
@@ -25,14 +32,12 @@ class Login extends Input {
 										this.props.history.push('/tasks');
 									}}
 								>
-									<Logo className="text-center" />
-
 									{this.renderInput('username', 'Usuario:')}
 									{this.renderInput('password', 'Contraseña:', 'password')}
 									{this.renderButton('Ingresar')}
 								</form>
 								<SocialMedia />
-							</div>
+							</main>
 						</div>
 					);
 				}}

@@ -14,7 +14,7 @@ const Home = (props) => {
 				{({ store, actions }) => {
 					return store.tasks.map((task) => {
 						return (
-							<article className="task-holder">
+							<article className="task-holder" key={task.id}>
 								<Task
 									id={task.id}
 									title={task.title}
@@ -22,7 +22,6 @@ const Home = (props) => {
 									category={task.category}
 									location={task.location}
 									date={task.date}
-									key={task.id}
 									onClick={() => props.history.push(`/tasks/${task.id}`)}
 									categoryIcon={getIconById(store.categories, task.category)}
 								/>
