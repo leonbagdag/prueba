@@ -12,11 +12,6 @@ class Task extends React.Component {
 					<section className="task__main__content">
 						<div className="row task__row">
 							<h3>{this.props.title}</h3>
-							{/* <p>{this.props.description}</p> */}
-
-							<aside className="task__price">
-								<h5>${this.props.payment}</h5>
-							</aside>
 						</div>
 						<footer className="task__details">
 							<div>

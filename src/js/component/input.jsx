@@ -44,7 +44,7 @@ class Input extends React.Component {
             } 
              
 
-            if (input.length > 50) {
+            if (input.length > 25) {
                 errors[name] = 'El título es demasiado largo. Intenta acortarlo un poco';
                 return this.setState({errors});
             }    

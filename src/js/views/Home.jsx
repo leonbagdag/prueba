@@ -12,20 +12,24 @@ const Home = (props) => {
 			<CategoryList />
 			<Consumer>
 				{({ store, actions }) => {
-					return store.tasks.map((task, i) => {
+					return store.tasks.map((task) => {
 						return (
-							<Task
-								id={task.id}
-								title={task.title}
-								description={task.description}
-								category={task.category}
-								location={task.location}
-								date={task.date}
-								payment={task.payment}
-								key={i}
-								onClick={() => props.history.push(`/tasks/${task.id}`)}
-								categoryIcon={getIconById(store.categories, task.category)}
-							/>
+							<article className="task-holder">
+								<Task
+									id={task.id}
+									title={task.title}
+									description={task.description}
+									category={task.category}
+									location={task.location}
+									date={task.date}
+									key={task.id}
+									onClick={() => props.history.push(`/tasks/${task.id}`)}
+									categoryIcon={getIconById(store.categories, task.category)}
+								/>
+								<aside>
+									<h5>$ {task.payment}</h5>
+								</aside>
+							</article>
 						);
 					});
 				}}
