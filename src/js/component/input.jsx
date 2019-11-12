@@ -69,14 +69,11 @@ class Input extends React.Component {
 
 
         if (name === 'payment') {
-            let minPay = /^\d{4}$/;
-            let minPayDotted = /^[0-9]+\.[0-9][0-9][0-9]$/;
-            console.log(minPay.test(input))
-
-            if (!minPay.test(input) || !minPay.test(minPayDotted)) {
-                errors[name] = 'El monto ofrecido es muy bajo';
+            input = input.replace(/\./, '');
+        
+            if (input < 5000) {
+                errors[name] = 'El pago mínimo que puedes ofrecer es $5.000';
                 this.setState({errors});
-                console.log(errors);
             } 
 
             
