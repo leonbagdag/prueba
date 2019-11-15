@@ -22,6 +22,8 @@ class Register extends Input {
 								{this.renderError('rut')}
 								{this.renderInput('email', 'Mail:', 'email')}
 								{this.renderError('email')}
+								{this.renderInput('phone', 'Teléfono:', 'number')}
+								{this.renderError('phone')}
 								{this.renderInput('username', 'Nombre de usuario:')}
 								{this.renderError('username')}
 								{this.renderInput('password', 'Contraseña:', 'password')}

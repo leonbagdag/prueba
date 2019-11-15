@@ -136,7 +136,7 @@ class Input extends React.Component {
             input = format(input);
 
             if (!validate(input)) {
-                errors[name] = 'El RUT ingresado es incorrecto';
+                errors[name] = 'El RUT ingresado no es válido';
                 this.setState({errors});
             } 
             
@@ -149,6 +149,26 @@ class Input extends React.Component {
             
             if (input === -1) {
                 errors[name] = 'Debes elegir una imagen en formato .jpg, .png o .svg';
+                this.setState({errors});
+            }
+        } 
+
+        if (name === 'email') {
+            input = /^[a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-z0-9]@[a-z0-9][-\.]{0,1}([a-z][-\.]{0,1})*[a-z0-9]\.[a-z0-9]{1,}([\.\-]{0,1}[a-z]){0,}[a-z0-9]{0,}$/.test(input);
+            console.log(input)
+            
+            if (!input) {
+                errors[name] = 'Asegúrate de ingresar el formato correcto de email';
+                this.setState({errors});
+            }
+        } 
+
+        if (name === 'phone') {
+            input = /[569][5-9]\d{7}|[5-9]\d{7}/.test(input);
+            console.log(input)
+            
+            if (!input) {
+                errors[name] = 'El número ingresado no es válido, revisa que sea correcto';
                 this.setState({errors});
             }
         } 
