@@ -119,12 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//let urlEndpoint = 'api/tasks';
 				const dataJson = require('./data/sample.json');
 				const store = getStore();
-				let tasks = store.tasks;
-				if (tasks.length === 0) {
-					tasks = [ ...dataJson ];
-				}
-
-				setStore({ tasks });
+				let tasks = store.tasks !== undefined ? [ ...dataJson ] : [ ...store.tasks ];
 
 				if (category > 0) {
 					tasks = tasks.filter((task) => task.category === category);
@@ -133,6 +128,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					//urlEndpoint += '/category/' + category;
 				}
 
+				setStore({ tasks });
 				/*
 				fetch(urlEndpoint).then((resp) => resp.json()).then((data) => {
 					setStore({ tasks: data });
