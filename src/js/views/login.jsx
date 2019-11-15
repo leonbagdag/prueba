@@ -54,13 +54,12 @@ class Login extends Input {
 									}}
 								>
 									<label>Usuario:</label>
-									<input name="username" value={this.state.username} onChange={this.handleChange} />
+									<input name="username" onChange={this.handleChange} />
 
 									<label>Contraseña:</label>
 									<input
 										name="password"
 										type="password"
-										value={this.state.username}
 										onChange={this.handleChange}
 									/>
 
