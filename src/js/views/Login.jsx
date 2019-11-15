@@ -10,6 +10,13 @@ import SocialMedia from '../component/socialMedia';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Input {
+	componentDidMount() {
+		let username = localStorage.getItem('username');
+		let password = localStorage.getItem('password');
+		console.log(username, password);
+		//this.setState({ username, password });
+	}
+
 	render() {
 		return (
 			<Consumer>
@@ -30,10 +37,25 @@ class Login extends Input {
 										e.preventDefault();
 										actions.handleLogin(this.state.data);
 										this.props.history.push('/tasks');
+										localStorage.setItem('username', this.state.data.username);
+										localStorage.setItem('password', this.state.data.password);
 									}}
 								>
-									{this.renderInput('username', 'Usuario:')}
-									{this.renderInput('password', 'Contraseña:', 'password')}
+									<label>Usuario:</label>
+									<input
+										name="username"
+										value={localStorage.getItem('username')}
+										onChange={this.handleChange}
+									/>
+
+									<label>Contraseña:</label>
+									<input
+										name="password"
+										type="password"
+										value={localStorage.getItem('password')}
+										onChange={this.handleChange}
+									/>
+
 									{this.renderButton('Ingresar')}
 								</form>
 								<SocialMedia />

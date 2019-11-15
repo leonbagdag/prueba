@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../../sass/main.scss';
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Input from '../component/input';
 
-import { Consumer } from '../store/appContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-const Account = () => {
+/* const Account = () => {
 	const [ phonenumber, setPhonenumber ] = useState({
 		text: '56 9 657 477 55'
 	});
@@ -101,6 +100,83 @@ const Account = () => {
 			</Consumer>
 		</div>
 	);
-};
+}; */
+
+class Account extends Input {
+	constructor() {
+		super();
+		this.state = {
+			data: {
+				phonenumber: '56 9 657 477 55',
+				email: 'cflastra@uc.cl',
+				password: '*******'
+			},
+			errors: {}
+		};
+		this.handleSubmit = (e) => {
+			e.preventDefault();
+			let data = this.state.data;
+			this.setState({ data });
+		};
+	}
+
+	render() {
+		return (
+			<div className="user">
+				<header className="user__card">
+					<img
+						className="thumbnail"
+						src="https://avatars1.githubusercontent.com/u/49383737?s=460&v=4"
+						alt=""
+					/>
+					<h2>Constanza Lastra</h2>
+					<h3>@conilastra</h3>
+				</header>
+
+				<form className="user__data" onSubmit={(e) => this.handleSubmit(e)}>
+					<div className="user__data__container">
+						<h5>Teléfono:</h5>
+						<div className="user__data__container__edit">
+							<input
+								type="text"
+								value={`+${this.state.data.phonenumber}`}
+								name="phonenumber"
+								onChange={this.handleChange}
+								onBlur={this.validation}
+							/>
+						</div>
+					</div>
+					<div className="user__data__container">
+						<h5>Email:</h5>
+						<div className="user__data__container__edit">
+							<input
+								type="text"
+								value={this.state.data.email}
+								name="email"
+								onChange={this.handleChange}
+								onBlur={this.validation}
+							/>
+						</div>
+					</div>
+					<div className="user__data__container">
+						<h5>Contraseña:</h5>
+						<div className="user__data__container__edit">
+							<input
+								type="password"
+								placeholder="******"
+								name="password"
+								onChange={this.handleChange}
+								onBlur={this.validation}
+							/>
+							{this.renderError('password')}
+						</div>
+					</div>
+
+					{this.renderButton('Guardar cambios')}
+				</form>
+			</div>
+		);
+	}
+}
 
 export default Account;

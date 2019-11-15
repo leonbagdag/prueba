@@ -77,7 +77,17 @@ class Input extends React.Component {
             } 
             
             this.setState({errors});   
-        }    
+        }  
+        
+        if (name === 'phonenumber') {
+
+            if (input.length < 7) {
+                errors[name] = 'Revisa que el número ingresado sea correcto';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        }  
 
 
         if (name === 'username') {
@@ -114,7 +124,7 @@ class Input extends React.Component {
         if (name === 'password') {
         
             if (input.length > 0 && input.length < 4) {
-                errors[name] = 'Tu contraseña debe ser de al menos 4 caracteres';
+                errors[name] = 'Tu contraseña debe tener al menos 4 caracteres';
                 this.setState({errors});
             } 
             
