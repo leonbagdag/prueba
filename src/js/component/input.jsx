@@ -154,7 +154,7 @@ class Input extends React.Component {
         } 
 
         if (name === 'email') {
-            input = /^[a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1}([a-z0-9][\-_\.\+\!\#\$\%\&\'\*\/\=\?\^\`\{\|]{0,1})*[a-z0-9]@[a-z0-9][-\.]{0,1}([a-z][-\.]{0,1})*[a-z0-9]\.[a-z0-9]{1,}([\.\-]{0,1}[a-z]){0,}[a-z0-9]{0,}$/.test(input);
+            input = /\b[\w.-]+@[\w.-]+\.\w{2,4}\b/.test(input);
             console.log(input)
             
             if (!input) {
@@ -164,10 +164,10 @@ class Input extends React.Component {
         } 
 
         if (name === 'phone') {
-            input = /[569][5-9]\d{7}|[5-9]\d{7}/.test(input);
+            input = /(569)[5-9]{1}\d{7}|[5-9]{1}\d{7}/.test(input);
             console.log(input)
             
-            if (!input) {
+            if (!input && input.length > 11) {
                 errors[name] = 'El número ingresado no es válido, revisa que sea correcto';
                 this.setState({errors});
             }

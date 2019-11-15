@@ -107,7 +107,7 @@ class Account extends Input {
 		super();
 		this.state = {
 			data: {
-				phonenumber: '56 9 657 477 55',
+				phone: '965747755',
 				email: 'cflastra@uc.cl',
 				password: '*******'
 			},
@@ -139,12 +139,13 @@ class Account extends Input {
 						<div className="user__data__container__edit">
 							<input
 								type="text"
-								value={`+${this.state.data.phonenumber}`}
-								name="phonenumber"
+								value={this.state.data.phone}
+								name="phone"
 								onChange={this.handleChange}
 								onBlur={this.validation}
 							/>
 						</div>
+						{this.renderError('phone')}
 					</div>
 					<div className="user__data__container">
 						<h5>Email:</h5>
@@ -157,6 +158,7 @@ class Account extends Input {
 								onBlur={this.validation}
 							/>
 						</div>
+						{this.renderError('email')}
 					</div>
 					<div className="user__data__container">
 						<h5>Contraseña:</h5>
@@ -168,8 +170,8 @@ class Account extends Input {
 								onChange={this.handleChange}
 								onBlur={this.validation}
 							/>
-							{this.renderError('password')}
 						</div>
+						{this.renderError('password')}
 					</div>
 
 					{this.renderButton('Guardar cambios')}
