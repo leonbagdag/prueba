@@ -30,7 +30,7 @@ class Details extends React.Component {
 					if (task !== undefined) {
 						return (
 							<main className="w-70">
-								<header>
+								<header className="header">
 									<h2 className="white-text">{task.title}</h2>
 								</header>
 								<div className="row details">

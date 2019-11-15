@@ -77,7 +77,17 @@ class Input extends React.Component {
             } 
             
             this.setState({errors});   
-        }    
+        }  
+        
+        if (name === 'phonenumber') {
+
+            if (input.length < 7) {
+                errors[name] = 'Revisa que el número ingresado sea correcto';
+                this.setState({errors});
+            } 
+            
+            this.setState({errors});   
+        }  
 
 
         if (name === 'username') {
@@ -114,7 +124,7 @@ class Input extends React.Component {
         if (name === 'password') {
         
             if (input.length > 0 && input.length < 4) {
-                errors[name] = 'Tu contraseña debe ser de al menos 4 caracteres';
+                errors[name] = 'Tu contraseña debe tener al menos 4 caracteres';
                 this.setState({errors});
             } 
             
@@ -126,7 +136,7 @@ class Input extends React.Component {
             input = format(input);
 
             if (!validate(input)) {
-                errors[name] = 'El RUT ingresado es incorrecto';
+                errors[name] = 'El RUT ingresado no es válido';
                 this.setState({errors});
             } 
             
@@ -139,6 +149,29 @@ class Input extends React.Component {
             
             if (input === -1) {
                 errors[name] = 'Debes elegir una imagen en formato .jpg, .png o .svg';
+                this.setState({errors});
+            }
+        } 
+
+        if (name === 'email') {
+            input = /\b[\w.-]+@[\w.-]+\.\w{2,4}\b/.test(input);
+            console.log(input)
+            
+            if (!input) {
+                errors[name] = 'Asegúrate de ingresar el formato correcto de email';
+                this.setState({errors});
+            }
+        } 
+
+        if (name === 'phone') {
+            if (input < 11) {
+                input = /569[5-9]{1}\d{7}|[5-9]{1}\d{7}$/.test(input);
+            }
+            
+            console.log(input)
+            
+            if (!input || input.length > 11) {
+                errors[name] = 'El número ingresado no es válido, revisa que sea correcto';
                 this.setState({errors});
             }
         } 

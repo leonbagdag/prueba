@@ -8,6 +8,7 @@ import History from './views/history';
 import Details from './views/details';
 import Register from './views/register';
 import Post from './views/post';
+import Account from './views/account';
 
 // Layouts
 import DashboardLayoutRoute from './templates/dashboard';
@@ -29,6 +30,7 @@ class Layout extends React.Component {
 							<DashboardLayoutRoute path="/mytasks" component={History} />
 							<DashboardLayoutRoute path="/tasks" component={Home} />
 							<DashboardLayoutRoute path="/new" component={Post} />
+							<DashboardLayoutRoute path="/account" component={Account} />
 
 							<Route render={() => <h1>Esta página no existe :(</h1>} />
 						</Switch>

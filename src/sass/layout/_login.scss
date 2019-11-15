@@ -1,34 +1,34 @@
 .login {
-  align-self: center;
-  border-bottom: 1px solid $light-gray;
+	align-self: center;
+	border-bottom: 1px solid $light-gray;
 
-  &__outro {
-    text-align: center;
-    padding: 1rem 0;
-  }
+	&__outro {
+		text-align: center;
+		padding: 1rem 0;
+	}
 }
 
 .alpha-bg {
-  background-color: $alpha-color;
+	background-color: $alpha-color;
 }
 
 .social-media {
-  width: 90%;
-  padding: 2rem 0;
-  margin: 0 auto;
+	width: 90%;
+	padding: 2rem 0;
+	margin: 0 auto;
 
-  &__buttons {
-    justify-content: center;
-  }
+	&__buttons {
+		justify-content: center;
+	}
 
-  button {
-    width: 40%;
-    margin: 1.5em 0.5em;
-  }
+	button {
+		width: 40%;
+		margin: 1.5em 0.5em;
+	}
 
-  p,
-  small {
-    color: $darker-gray;
-    text-align: center;
-  }
+	p,
+	small {
+		color: $darker-gray;
+		text-align: center;
+	}
 }

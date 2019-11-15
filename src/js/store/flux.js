@@ -120,11 +120,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const dataJson = require('./data/sample.json');
 				const store = getStore();
 				let tasks = store.tasks;
+
 				if (tasks.length === 0) {
 					tasks = [ ...dataJson ];
+					setStore({ tasks });
 				}
-
-				setStore({ tasks });
 
 				if (category > 0) {
 					tasks = tasks.filter((task) => task.category === category);

@@ -25,7 +25,8 @@ import {
 	faPaperclip,
 	faCalendarCheck,
 	faThumbtack,
-	faExclamationCircle
+	faExclamationCircle,
+	faPencilAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -50,7 +51,8 @@ library.add(
 	faPaperclip,
 	faCalendarCheck,
 	faThumbtack,
-	faExclamationCircle
+	faExclamationCircle,
+	faPencilAlt
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));

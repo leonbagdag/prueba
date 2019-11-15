@@ -4,6 +4,13 @@
 	text-align: center;
 }
 
-.main-logo {
-	padding: 1.5rem;
+.full-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $brand-color;
+
+	h1 {
+		margin-left: .7rem;
+	}
 }

@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
 
 $raleway: "Raleway", sans-serif;
+$muli: 'Muli', sans-serif;
 
 h1,
 h2,
@@ -11,6 +12,6 @@ h6,
 p,
 span,
 small {
-  font-family: $raleway;
-  color: $darker-gray;
+	font-family: $raleway;
+	color: $darker-gray;
 }

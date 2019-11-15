@@ -1,13 +1,34 @@
 import React from 'react';
 import '../../sass/main.scss';
+
 import { Consumer } from '../store/appContext';
 import { withRouter } from 'react-router';
+/* import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+import { facebookID } from '../store/data/apiID'; */
 
 import Logo from '../component/logo';
 import Input from '../component/input';
-import SocialMedia from '../component/socialMedia';
+import { Link } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Input {
+	componentDidMount() {
+		let username = localStorage.getItem('username');
+		let password = localStorage.getItem('password');
+		console.log(username, password);
+		this.setState({ username, password });
+	}
+
+	/* responseFacebook = (response) => {
+		console.log(response);
+	};
+
+	responseGoogle = (response) => {
+		console.log(response);
+	}; */
+
 	render() {
 		return (
 			<Consumer>
@@ -16,23 +37,60 @@ class Login extends Input {
 					this.actions = actions;
 					return (
 						<div className="container alpha-bg">
-							<div>
+							<main>
+								<header className="full-logo">
+									<FontAwesomeIcon icon="thumbtack" size="lg" />
+									<Logo />
+								</header>
+
 								<form
 									className="login"
 									onSubmit={(e) => {
 										e.preventDefault();
 										actions.handleLogin(this.state.data);
 										this.props.history.push('/tasks');
+										localStorage.setItem('username', this.state.data.username);
+										localStorage.setItem('password', this.state.data.password);
 									}}
 								>
-									<Logo className="text-center" />
+									<label>Usuario:</label>
+									<input name="username" value={this.state.username} onChange={this.handleChange} />
 
-									{this.renderInput('username', 'Usuario:')}
-									{this.renderInput('password', 'Contraseña:', 'password')}
+									<label>Contraseña:</label>
+									<input
+										name="password"
+										type="password"
+										value={this.state.username}
+										onChange={this.handleChange}
+									/>
+
 									{this.renderButton('Ingresar')}
 								</form>
-								<SocialMedia />
-							</div>
+								<div className="login__outro">
+									<small>
+										¿No tienes cuenta?{' '}
+										<Link to="/register">
+											<span className="link">Crea una aquí</span>
+										</Link>
+									</small>
+								</div>
+								{/* <SocialMedia /> */}
+								{/* <FacebookLogin
+									appId={facebookID}
+									autoLoad
+									callback={this.responseFacebook}
+									render={(renderProps) => (
+										<button onClick={renderProps.onClick}>This is my custom FB button</button>
+									)}
+								/>
+
+								<GoogleLogin
+									clientId="" //CLIENTID NOT CREATED YET
+									buttonText="LOGIN WITH GOOGLE"
+									onSuccess={this.responseGoogle}
+									onFailure={this.responseGoogle}
+								/> */}
+							</main>
 						</div>
 					);
 				}}

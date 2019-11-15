@@ -1,0 +1,54 @@
+.user {
+	width: 70%;
+	margin: 0 auto;
+
+	&__card {
+		padding-top: 3rem;
+		padding-bottom: 2rem;
+		text-align: center;
+	}
+	&__data {
+		width: 55%;
+		margin: 0 auto;
+
+		&__container {
+			display: flex;
+			flex-wrap: wrap;
+			padding: .5rem;
+			width: 100%;
+			align-items: center;
+
+			&__edit {
+				min-width: 20%;
+			}
+
+			h5 {
+				font-size: 1rem;
+			}
+
+			span {
+				margin: 0 .5rem;
+				color: #ada7a7;
+				font-size: 70%;
+			}
+
+			input {
+				border: none;
+				padding: 0.2rem;
+				margin-left: .5rem;
+			}
+
+			input:active {
+				border: 1px solid red;
+			}
+		}
+	}
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: initial;
+}
