@@ -164,8 +164,8 @@ class Input extends React.Component {
         } 
 
         if (name === 'phone') {
-            if (input < 11) {
-                input = /569[5-9]{1}\d{7}|[5-9]{1}\d{7}$/.test(input);
+            if (input !== '' && input.length < 11) {
+                input = /569\d{1}\d{3}\d{4}/.test(input);
             }
             
             console.log(input)

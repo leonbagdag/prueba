@@ -8,7 +8,10 @@ import History from './views/history';
 import Details from './views/details';
 import Register from './views/register';
 import Post from './views/post';
+import Posted from './views/posted';
 import Account from './views/account';
+import Applied from './views/applied';
+import Applications from './component/applications';
 
 // Layouts
 import DashboardLayoutRoute from './templates/dashboard';
@@ -27,10 +30,15 @@ class Layout extends React.Component {
 							<PublicLayoutRoute exact path="/" component={Login} />
 							<PublicLayoutRoute exact path="/register" component={Register} />
 							<DashboardLayoutRoute path="/tasks/:id" component={Details} />
-							<DashboardLayoutRoute path="/mytasks" component={History} />
+							<DashboardLayoutRoute path="/mytasks/:id" component={History} />
+							<DashboardLayoutRoute path="/mytasks/:id/posted" component={Posted} />
+							<DashboardLayoutRoute path="/mytasks/:id/applied" component={Applied} />
 							<DashboardLayoutRoute path="/tasks" component={Home} />
 							<DashboardLayoutRoute path="/new" component={Post} />
 							<DashboardLayoutRoute path="/account" component={Account} />
+							<DashboardLayoutRoute path="/posted/:id" component={Posted} />
+							<DashboardLayoutRoute path="/applications" component={Applications} />
+							<DashboardLayoutRoute path="/mytasks/applied/:id" component={Applied} />
 
 							<Route render={() => <h1>Esta página no existe :(</h1>} />
 						</Switch>

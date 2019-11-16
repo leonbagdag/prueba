@@ -17,7 +17,7 @@ class Menu extends React.Component {
 						<FontAwesomeIcon icon="user" /> Mi cuenta
 					</li>
 				</Link>
-				<Link to="/mytasks">
+				<Link to="/mytasks/1">
 					<li>
 						<FontAwesomeIcon icon="tasks" /> Mis tareas
 					</li>

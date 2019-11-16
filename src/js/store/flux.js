@@ -4,10 +4,172 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			account: {
-				username: '',
-				password: ''
+				username: 'conilastra',
+				password: 'algunacosa',
+				id: 1
 			},
-			tasks: [],
+			users: [
+				{
+					id: 1,
+					name: 'Constanza',
+					lastname: 'Lastra',
+					rut: '17.700.391-3',
+					email: 'cflastra@uc.cl',
+					username: 'conilastra',
+					password: '12345678'
+				},
+				{
+					id: 2,
+					name: 'Jorge',
+					lastname: 'Ragio',
+					rut: '2.125.743-2',
+					email: 'jorgeragio@gmail.com',
+					username: 'elpelado',
+					password: '98765432'
+				},
+				{
+					id: 3,
+					name: 'Simon',
+					lastname: 'Lara',
+					rut: '12.485.263',
+					email: 'simonlara@gmail.com',
+					username: 'compilando',
+					password: '45612398'
+				},
+				{
+					id: 4,
+					name: 'Andres',
+					lastname: 'Sotomayor',
+					rut: '15.245.345-1',
+					email: 'andressotomayor@gmail.com',
+					username: 'perseguido',
+					password: '12345678'
+				}
+			],
+			tasksfake: [
+				{
+					id: 1,
+					userId: 2,
+					title: 'Ejemplo de una tarea',
+					category: 1,
+					description: 'Imagina que soy una tarea',
+					location: 'Providencia',
+					date: '24/11/2019',
+					payment: '10.000'
+				},
+				{
+					id: 2,
+					userId: 1,
+					title: 'Yo soy otra tarea',
+					category: 2,
+					description: 'Imagina que soy una tarea',
+					location: 'Las Condes',
+					date: '12/12/2019',
+					payment: '15.000'
+				},
+				{
+					id: 3,
+					userId: 4,
+					title: 'Una tercera tarea',
+					category: 4,
+					description: 'Imagina que soy una tarea',
+					location: 'Santiago',
+					date: '20/11/2019',
+					payment: '20.000'
+				},
+				{
+					id: 4,
+					userId: 4,
+					title: 'Otra más',
+					category: 2,
+					description: 'Imagina que soy una tarea',
+					location: 'Vitacura',
+					date: '15/11/2019',
+					payment: '50.000'
+				},
+				{
+					id: 5,
+					userId: 1,
+					title: 'Soy la penúltima tarea',
+					category: 3,
+					description: 'Imagina que soy una tarea',
+					location: 'Ñuñoa',
+					date: '01/12/2019',
+					payment: '12.000'
+				},
+				{
+					id: 6,
+					userId: 2,
+					title: 'Conmigo se acaban los datos',
+					category: 3,
+					description: 'Imagina que soy una tarea',
+					location: 'Santiago',
+					date: '20/12/2019',
+					payment: '10.000'
+				}
+			],
+			tasks: [
+				{
+					id: 1,
+					userId: 2,
+					title: 'Ejemplo de una tarea',
+					category: 1,
+					description: 'Imagina que soy una tarea',
+					location: 'Providencia',
+					date: '24/11/2019',
+					payment: '10.000'
+				},
+				{
+					id: 2,
+					userId: 1,
+					title: 'Yo soy otra tarea',
+					category: 2,
+					description: 'Imagina que soy una tarea',
+					location: 'Las Condes',
+					date: '12/12/2019',
+					payment: '15.000'
+				},
+				{
+					id: 3,
+					userId: 4,
+					title: 'Una tercera tarea',
+					category: 4,
+					description: 'Imagina que soy una tarea',
+					location: 'Santiago',
+					date: '20/11/2019',
+					payment: '20.000'
+				},
+				{
+					id: 4,
+					userId: 4,
+					title: 'Otra más',
+					category: 2,
+					description: 'Imagina que soy una tarea',
+					location: 'Vitacura',
+					date: '15/11/2019',
+					payment: '50.000'
+				},
+				{
+					id: 5,
+					userId: 1,
+					title: 'Soy la penúltima tarea',
+					category: 3,
+					description: 'Imagina que soy una tarea',
+					location: 'Ñuñoa',
+					date: '01/12/2019',
+					payment: '12.000'
+				},
+				{
+					id: 6,
+					userId: 2,
+					title: 'Conmigo se acaban los datos',
+					category: 3,
+					description: 'Imagina que soy una tarea',
+					location: 'Santiago',
+					date: '20/12/2019',
+					payment: '10.000'
+				}
+			],
 			currentTask: {},
 			newTask: {
 				id: '',
@@ -117,20 +279,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}) */
 
 				//let urlEndpoint = 'api/tasks';
-				const dataJson = require('./data/sample.json');
+				//const dataJson = require('./data/sample.json');
 				const store = getStore();
-				let tasks = store.tasks;
-
-				if (tasks.length === 0) {
-					tasks = [ ...dataJson ];
-					setStore({ tasks });
-				}
+				let tasks = [ ...store.tasksfake ];
 
 				if (category > 0) {
-					tasks = tasks.filter((task) => task.category === category);
+					let filtered = store.tasksfake.filter((task) => task.category === category);
 					console.log(tasks);
-					setStore({ tasks });
+					setStore({ tasks: filtered });
 					//urlEndpoint += '/category/' + category;
+				} else {
+					setStore({ tasks: tasks });
 				}
 
 				/*
