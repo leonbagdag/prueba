@@ -6,10 +6,10 @@ import { Consumer } from '../store/appContext';
 const Applied = () => {
 	const [ display, setDisplay ] = useState(true);
 
-	const handleDisplay = () => {
+	/* const handleDisplay = () => {
 		if (display === false) return setDisplay(true);
 		else setDisplay(false);
-	};
+	}; */
 
 	return (
 		<div className="w-70">

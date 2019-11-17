@@ -36,6 +36,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 					password: '45612398'
 				}
 			],
+			candidates: [
+				{
+					userId: 1,
+					taskId: 1,
+					description: 'La que puede, puede y yo puedo'
+				},
+				{
+					userId: 1,
+					taskId: 6,
+					description: 'La que puede, puede y yo puedo'
+				},
+				{
+					userId: 2,
+					taskId: 2,
+					description: 'Soy el más veloz del oeste'
+				},
+				{
+					userId: 3,
+					taskId: 2,
+					description: 'Soy siempre el mejor, mejor que nadie más'
+				}
+			],
 			tasks: [],
 			pastTasks: [
 				{
@@ -47,22 +69,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					location: 'Providencia',
 					date: '24/09/2019',
 					payment: '10.000',
-					hasCandidates: true,
-					candidatesId: [ 3, 2 ]
+					hasCandidates: false,
+					candidates: []
 				}
 			],
 			allTasks: [
 				{
 					id: 1,
 					userId: 2,
-					title: 'Ejemplo de una tarea',
+					title: 'Ejemplo de tarea',
 					category: 1,
 					description: 'Imagina que soy una tarea',
 					location: 'Providencia',
 					date: '24/11/2019',
 					payment: '10.000',
 					hasCandidates: true,
-					candidatesId: [ 3, 2 ]
+					asigned: true,
+					asignedTo: 1
 				},
 				{
 					id: 2,
@@ -74,7 +97,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date: '12/12/2019',
 					payment: '15.000',
 					hasCandidates: true,
-					candidatesId: [ 2, 3 ]
+					asigned: false,
+					asignedTo: ''
 				},
 				{
 					id: 3,
@@ -86,7 +110,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date: '20/11/2019',
 					payment: '20.000',
 					hasCandidates: false,
-					candidatesId: []
+					candidates: [],
+					asigned: false,
+					asignedTo: ''
 				},
 				{
 					id: 4,
@@ -98,7 +124,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date: '15/11/2019',
 					payment: '50.000',
 					hasCandidates: false,
-					candidatesId: []
+					candidates: [],
+					asigned: false,
+					asignedTo: ''
 				},
 				{
 					id: 5,
@@ -110,7 +138,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date: '01/12/2019',
 					payment: '12.000',
 					hasCandidates: false,
-					candidatesId: []
+					candidates: [],
+					asigned: false,
+					asignedTo: ''
 				},
 				{
 					id: 6,
@@ -122,7 +152,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					date: '20/12/2019',
 					payment: '10.000',
 					hasCandidates: false,
-					candidatesId: []
+					candidates: [],
+					asigned: false,
+					asignedTo: ''
 				}
 			],
 			currentTask: {},

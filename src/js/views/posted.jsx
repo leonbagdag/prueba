@@ -4,6 +4,7 @@ import Task from '../component/task';
 import { getIconById } from '../constants/categories';
 import { Consumer } from '../store/appContext';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Posted = (props) => {
 	return (
@@ -47,7 +48,7 @@ const Posted = (props) => {
 								);
 							})};
 							<div className="history__title--inactive">
-								<h2>Tareas activas</h2>
+								<h2>Tareas pasadas</h2>
 							</div>
 							{pastTasks.filter((task) => task.userId === user[0].id).map((task) => {
 								return (
@@ -63,7 +64,10 @@ const Posted = (props) => {
 											categoryIcon={getIconById(store.categories, task.category)}
 										/>
 										<aside>
-											<h3 className="history__task-holder__text--completed">Tarea completada</h3>
+											<h3 className="history__task-holder__text--completed">
+												{' '}
+												<FontAwesomeIcon icon="check-circle" /> Realizada
+											</h3>
 										</aside>
 									</article>
 								);
