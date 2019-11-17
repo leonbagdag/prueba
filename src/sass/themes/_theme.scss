@@ -23,6 +23,10 @@
 	justify-content: space-between;
 }
 
+.justify-evenly {
+	justify-content: space-evenly;
+}
+
 // Borders
 .border-bottom {
 	border-bottom: $border;
@@ -46,6 +50,10 @@ a {
 
 .white-text {
 	color: white;
+}
+
+.gray-text {
+	color: $medium-gray;
 }
 
 // Wrappers

@@ -4,13 +4,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Components
 import Login from './views/login';
 import Home from './views/home';
-import History from './views/history';
 import Details from './views/details';
 import Register from './views/register';
 import Post from './views/post';
 import Posted from './views/posted';
 import Account from './views/account';
-import Applied from './views/applied';
+import Applied from './views/appliedTasks';
 import Applications from './component/applications';
 
 // Layouts
@@ -19,6 +18,7 @@ import PublicLayoutRoute from './templates/public';
 
 // Context
 import injectContext from './store/appContext';
+import PostedTasks from './views/postedTasks';
 
 class Layout extends React.Component {
 	render() {
@@ -30,9 +30,8 @@ class Layout extends React.Component {
 							<PublicLayoutRoute exact path="/" component={Login} />
 							<PublicLayoutRoute exact path="/register" component={Register} />
 							<DashboardLayoutRoute path="/tasks/:id" component={Details} />
-							<DashboardLayoutRoute path="/mytasks/:id" component={History} />
-							<DashboardLayoutRoute path="/mytasks/:id/posted" component={Posted} />
-							<DashboardLayoutRoute path="/mytasks/:id/applied" component={Applied} />
+							<DashboardLayoutRoute path="/posted" component={PostedTasks} />
+							<DashboardLayoutRoute path="/applied" component={Applied} />
 							<DashboardLayoutRoute path="/tasks" component={Home} />
 							<DashboardLayoutRoute path="/new" component={Post} />
 							<DashboardLayoutRoute path="/account" component={Account} />

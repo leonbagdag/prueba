@@ -12,7 +12,7 @@
 	color: $dark-gray;
 	padding: 1rem;
 	justify-content: space-between;
-	width: 83%;
+	min-width: 75%;
 
 	&__main {
 		display: flex;
@@ -21,6 +21,7 @@
 
 		&__content {
 			width: 80%;
+			padding-left: .5rem;
 		}
 	}
 
