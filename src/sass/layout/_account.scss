@@ -1,14 +1,17 @@
 .user {
-	width: 70%;
+	width: 80%;
 	margin: 0 auto;
 
 	&__card {
 		padding-top: 3rem;
 		padding-bottom: 2rem;
 		text-align: center;
+
+		img {
+			margin-bottom: 1rem;
+		}
 	}
 	&__data {
-		width: 55%;
 		margin: 0 auto;
 
 		&__container {
@@ -34,12 +37,14 @@
 
 			input {
 				border: none;
-				padding: 0.2rem;
+				padding: .2rem 1rem .2rem .2rem;
 				margin-left: .5rem;
+				outline: none;
+				border-radius: 0;
 			}
 
-			input:active {
-				border: 1px solid red;
+			input:focus {
+				border-bottom: 1px solid $brand-color;
 			}
 		}
 	}

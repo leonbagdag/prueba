@@ -4,7 +4,7 @@ import '../../sass/main.scss';
 import { Consumer } from '../store/appContext';
 
 const Applied = () => {
-	const [ display, setDisplay ] = useState(true);
+	const [ display ] = useState(true);
 
 	/* const handleDisplay = () => {
 		if (display === false) return setDisplay(true);
@@ -39,7 +39,9 @@ const Applied = () => {
 										className={display ? 'show' : 'hide'}
 										value={user.id}
 										onClick={(e) => {
-											let currentUser = store.users.filter((user) => user.id == e.target.value);
+											let currentUser = store.users.filter(
+												(user) => user.id === parseInt(e.target.value)
+											);
 											console.log(currentUser);
 											//handleDisplay(currentUser)
 										}}

@@ -164,13 +164,8 @@ class Input extends React.Component {
         } 
 
         if (name === 'phone') {
-            if (input !== '' && input.length < 11) {
-                input = /569\d{1}\d{3}\d{4}/.test(input);
-            }
             
-            console.log(input)
-            
-            if (!input || input.length > 11) {
+            if ( input.length < 8 || input.length > 11) {
                 errors[name] = 'El número ingresado no es válido, revisa que sea correcto';
                 this.setState({errors});
             }

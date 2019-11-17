@@ -15,16 +15,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rut: '17.700.391-3',
 					email: 'cflastra@uc.cl',
 					username: 'coni',
-					password: '12345678'
+					password: '12345678',
+					phone: '+56934657353'
 				},
 				{
 					id: 2,
 					name: 'Juan Manuel',
-					lastname: 'Palacios',
+					lastname: 'de Palacios',
 					rut: '2.125.743-2',
 					email: 'juanma@gmail.com',
 					username: 'juanma',
-					password: '98765432'
+					password: '98765432',
+					phone: '+56934257239'
 				},
 				{
 					id: 3,
@@ -33,7 +35,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					rut: '12.485.263',
 					email: 'anariak@gmail.com',
 					username: 'francisco',
-					password: '45612398'
+					password: '45612398',
+					phone: '+56934209745'
 				}
 			],
 			candidates: [
@@ -50,7 +53,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					userId: 2,
 					taskId: 2,
-					description: 'Soy el más veloz del oeste'
+					description: 'Lo que me pidas puedo. Y si no existe, lo invento'
 				},
 				{
 					userId: 3,

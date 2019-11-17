@@ -2,6 +2,11 @@
 	font-family: $raleway;
 }
 
+li {
+	list-style-type: none;
+	line-height: 1.5rem;
+}
+
 // Alignment & Position
 .align-center {
 	align-self: center;
@@ -54,6 +59,10 @@ a {
 
 .gray-text {
 	color: $medium-gray;
+}
+
+.brand-text {
+	color: $brand-color;
 }
 
 // Wrappers

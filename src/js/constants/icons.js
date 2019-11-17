@@ -1,8 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Layout from './js/layout';
-//import icons from '../src/js/constants/icons';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -63,5 +58,3 @@ library.add(
 	faPhoneAlt,
 	faEnvelope
 );
-
-ReactDOM.render(<Layout />, document.getElementById('root'));

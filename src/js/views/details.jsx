@@ -2,6 +2,7 @@ import React from 'react';
 import Offer from '../component/offer';
 import { Consumer } from '../store/appContext';
 import '../../sass/main.scss';
+import { ChosenMessage, PendingMessage } from '../component/messages';
 
 class Details extends React.Component {
 	constructor() {
@@ -24,10 +25,15 @@ class Details extends React.Component {
 				{({ store, actions }) => {
 					this.actions = actions;
 					this.store = store;
-					let task = store.currentTask[0];
+					let { candidates, currentTask, users } = store;
+					let task = currentTask[0];
 					let id = parseInt(this.props.match.params.id);
 
 					if (task !== undefined) {
+						let poster = users.find((user) => user.id === task.userId);
+						let posterFullName = `${poster.name} ${poster.lastname}`;
+						console.log(poster);
+
 						return (
 							<main className="w-70">
 								<header className="header">
@@ -43,7 +49,7 @@ class Details extends React.Component {
 										<p>{task.location}</p>
 									</div>
 									<div className="details__header">
-										<h3>Pago ofrecido:</h3>
+										<h3>Pago:</h3>
 										<p>$ {task.payment}</p>
 									</div>
 								</div>
@@ -53,12 +59,20 @@ class Details extends React.Component {
 									<p className="details__text">{task.description}</p>
 								</div>
 
-								<Offer
-									id={id}
-									handleOffer={actions.handleOffer}
-									handleSubmit={actions.handleOfferSubmit}
-									payment={task.payment}
-								/>
+								{candidates.find((candidates) => candidates.taskId === task.id) ? candidates.find(
+									(candidates) => candidates.userId === task.asignedTo
+								) ? (
+									<ChosenMessage user={posterFullName} email={poster.email} phone={poster.phone} />
+								) : (
+									<PendingMessage />
+								) : (
+									<Offer
+										id={id}
+										handleOffer={actions.handleOffer}
+										handleSubmit={actions.handleOfferSubmit}
+										payment={task.payment}
+									/>
+								)}
 							</main>
 						);
 					}

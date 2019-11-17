@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../sass/main.scss';
 import { NavLink } from 'react-router-dom';
-import Posted from './posted';
 import Aplied from './aplied';
 
 const Applied = (props) => {

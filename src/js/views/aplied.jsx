@@ -37,21 +37,21 @@ const Posted = (props) => {
 												categoryIcon={getIconById(store.categories, task.category)}
 											/>
 											<aside>
-												{task.asignedTo === candidates[0].taskId ? (
-													<Link to={`/applications`}>
+												<Link to={`/tasks/${task.id}`}>
+													{task.asignedTo === candidates[0].taskId ? (
 														<h3 className="history__task-holder__text--completed">
 															<FontAwesomeIcon icon="star" /> Asignada
 														</h3>
-													</Link>
-												) : (
-													<h3 className="history__task-holder__text--inactive">
-														<FontAwesomeIcon icon="hourglass-half" /> Pendiente
-													</h3>
-												)}
+													) : (
+														<h3 className="history__task-holder__text--inactive">
+															<FontAwesomeIcon icon="hourglass-half" /> Pendiente
+														</h3>
+													)}
+												</Link>
 											</aside>
 										</article>
 									);
-								})};
+								})}
 							<div className="history__title--inactive">
 								<h2>Tareas pasadas</h2>
 							</div>

@@ -2,6 +2,7 @@ import React from 'react';
 import '../../sass/main.scss';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../component/input';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* const Account = () => {
 	const [ phonenumber, setPhonenumber ] = useState({
@@ -162,7 +163,7 @@ class Account extends Input {
 					</div>
 					<div className="user__data__container">
 						<h5>Contraseña:</h5>
-						<div className="user__data__container__edit">
+						<div className="user__data__container__edit row">
 							<input
 								type="password"
 								placeholder="******"

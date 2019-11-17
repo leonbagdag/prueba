@@ -47,7 +47,7 @@ const Posted = (props) => {
 										</aside>
 									</article>
 								);
-							})};
+							})}
 							<div className="history__title--inactive">
 								<h2>Tareas pasadas</h2>
 							</div>
@@ -66,7 +66,6 @@ const Posted = (props) => {
 										/>
 										<aside>
 											<h3 className="history__task-holder__text--completed">
-												{' '}
 												<FontAwesomeIcon icon="check-circle" /> Realizada
 											</h3>
 										</aside>
