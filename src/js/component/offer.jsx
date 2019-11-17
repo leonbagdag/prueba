@@ -4,6 +4,10 @@ import '../../sass/main.scss';
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Offer extends React.Component {
+	state = {
+		payment: this.props.payment
+	};
+
 	render() {
 		return (
 			<form
@@ -36,7 +40,7 @@ class Offer extends React.Component {
 							id="recievedPayment"
 							name="payment"
 							className="payment"
-							placeholder={this.props.payment}
+							value={this.state.payment}
 							onChange={(e) => this.props.handleOffer(e)}
 							required
 						/>

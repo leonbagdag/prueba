@@ -61,7 +61,7 @@ const Posted = (props) => {
 										<p className="wrapper">No tienes tareas pasadas</p>
 									</article>
 								);
-							})};
+							})}
 						</main>
 					);
 				}}

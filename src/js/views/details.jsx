@@ -9,6 +9,7 @@ class Details extends React.Component {
 		super();
 		this.store = null;
 		this.actions = null;
+		this.state = {};
 	}
 
 	async componentDidMount() {
@@ -32,7 +33,6 @@ class Details extends React.Component {
 					if (task !== undefined) {
 						let poster = users.find((user) => user.id === task.userId);
 						let posterFullName = `${poster.name} ${poster.lastname}`;
-						console.log(poster);
 
 						return (
 							<main className="w-70">

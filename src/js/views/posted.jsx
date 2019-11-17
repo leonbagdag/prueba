@@ -71,7 +71,7 @@ const Posted = (props) => {
 										</aside>
 									</article>
 								);
-							})};
+							})}
 						</main>
 					);
 				}}

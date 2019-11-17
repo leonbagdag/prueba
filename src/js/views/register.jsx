@@ -11,7 +11,7 @@ class Register extends Input {
 				{({ actions }) => {
 					return (
 						<div>
-							<form className="register" onSubmit={this.handleRegister}>
+							<form className="register" onSubmit={this.handleRegister} method="post">
 								<Logo />
 
 								{this.renderInput('name', 'Nombre:')}

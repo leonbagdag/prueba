@@ -2,7 +2,6 @@ import React from 'react';
 import '../../sass/main.scss';
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Input from '../component/input';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /* const Account = () => {
 	const [ phonenumber, setPhonenumber ] = useState({
@@ -110,7 +109,7 @@ class Account extends Input {
 			data: {
 				phone: '965747755',
 				email: 'cflastra@uc.cl',
-				password: '*******'
+				password: 'algo'
 			},
 			errors: {}
 		};
@@ -166,7 +165,7 @@ class Account extends Input {
 						<div className="user__data__container__edit row">
 							<input
 								type="password"
-								placeholder="******"
+								value={this.state.data.password}
 								name="password"
 								onChange={this.handleChange}
 								onBlur={this.validation}

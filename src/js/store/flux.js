@@ -105,7 +105,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					id: 3,
-					userId: 4,
+					userId: 3,
 					title: 'Una tercera tarea',
 					category: 4,
 					description: 'Imagina que soy una tarea',
@@ -119,7 +119,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				},
 				{
 					id: 4,
-					userId: 4,
+					userId: 3,
 					title: 'Otra más',
 					category: 2,
 					description: 'Imagina que soy una tarea',
