@@ -5,6 +5,7 @@ import { getIconById } from '../constants/categories';
 import { Consumer } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { withRouter } from 'react-router';
 
 const Posted = (props) => {
 	return (
@@ -80,4 +81,4 @@ const Posted = (props) => {
 	);
 };
 
-export default Posted;
+export default withRouter(Posted);

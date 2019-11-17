@@ -5,6 +5,7 @@ import { getIconById } from '../constants/categories';
 import { Consumer } from '../store/appContext';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { withRouter } from 'react-router';
 
 const Posted = (props) => {
 	return (
@@ -39,7 +40,7 @@ const Posted = (props) => {
 												{task.asignedTo === candidates[0].taskId ? (
 													<Link to={`/applications`}>
 														<h3 className="history__task-holder__text--completed">
-															<FontAwesomeIcon icon="check-circle" /> Asignada
+															<FontAwesomeIcon icon="star" /> Asignada
 														</h3>
 													</Link>
 												) : (
@@ -69,4 +70,4 @@ const Posted = (props) => {
 	);
 };
 
-export default Posted;
+export default withRouter(Posted);
