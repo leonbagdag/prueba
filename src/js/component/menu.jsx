@@ -12,14 +12,15 @@ class Menu extends React.Component {
 						<FontAwesomeIcon icon="home" /> Inicio
 					</li>
 				</Link>
-				<Link to="/account">
-					<li>
-						<FontAwesomeIcon icon="user" /> Mi cuenta
-					</li>
-				</Link>
+
 				<Link to="/posted">
 					<li>
 						<FontAwesomeIcon icon="tasks" /> Mis tareas
+					</li>
+				</Link>
+				<Link to="/account">
+					<li>
+						<FontAwesomeIcon icon="user" /> Mi cuenta
 					</li>
 				</Link>
 				<Link to="/">

@@ -2,6 +2,7 @@ import React from 'react';
 import '../../sass/main.scss';
 import Menu from './menu';
 import Logo from './logo';
+import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,7 +10,9 @@ class Sidebar extends React.Component {
 	render() {
 		return (
 			<aside className="w-30 column d-none-xs sidebar">
-				<Logo />
+				<Link to="/tasks">
+					<Logo />
+				</Link>
 				<Menu className="sidebar__menu" />
 				<button
 					className="large-btn"

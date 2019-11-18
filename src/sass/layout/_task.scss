@@ -67,7 +67,10 @@
 
 	&__description {
 		padding: 1rem;
-		line-height: 2rem;
+
+		&__text {
+			padding: 1rem 0;
+		}
 	}
 }
 

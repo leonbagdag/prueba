@@ -18,7 +18,10 @@ class Navbar extends React.Component {
 					<Menu className="menu" />
 				</div>
 
-				<Logo />
+				<Link to="/tasks">
+					<Logo />
+				</Link>
+
 				<Link to="/new">
 					<FontAwesomeIcon icon="edit" size="lg" />
 				</Link>
