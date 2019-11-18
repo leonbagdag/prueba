@@ -5,7 +5,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 			account: {
 				username: 'coni',
-				password: 'unaclave'
+				password: 'algunacosa',
+				userId: 1
 			},
 			users: [
 				{
@@ -43,22 +44,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					userId: 1,
 					taskId: 1,
-					description: 'La que puede, puede y yo puedo'
+					description: 'La que puede, puede y yo puedo',
+					payment: '10.000'
 				},
 				{
 					userId: 1,
 					taskId: 6,
-					description: 'La que puede, puede y yo puedo'
+					description: 'La que puede, puede y yo puedo',
+					payment: '15.000'
 				},
 				{
 					userId: 2,
 					taskId: 2,
-					description: 'Lo que me pidas puedo. Y si no existe, lo invento'
+					description: 'Lo que me pidas puedo. Y si no existe, lo invento',
+					payment: '15.000'
 				},
 				{
 					userId: 3,
 					taskId: 2,
-					description: 'Soy siempre el mejor, mejor que nadie más'
+					description: 'Soy siempre el mejor, mejor que nadie más',
+					payment: '13.000'
 				}
 			],
 			tasks: [],
@@ -290,12 +295,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			handleLogin: (state) => {
 				let account = state;
+				let store = getStore();
+				let user = store.users.find((user) => user.username === account.username).id;
+				account.userId = user;
+
 				setStore({ account });
 			},
 			handleTaskSubmit: (state) => {
 				let newTask = state;
 				let store = getStore();
-				let tasks = store.tasks;
+				let tasks = store.allTasks;
 				let index = tasks.length + 1;
 
 				newTask = {
@@ -304,11 +313,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 				};
 				tasks = [ ...tasks, newTask ];
 
-				setStore({ tasks });
+				setStore({ allTasks: tasks });
 			},
 			handleOffer: (e) => {
 				let store = getStore();
-				let newOffer = store.newOffer;
+				let { newOffer } = store;
 
 				newOffer[e.currentTarget.name] = e.currentTarget.value;
 
@@ -317,12 +326,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			handleOfferSubmit: (taskId) => {
 				let store = getStore();
-				let newOffer = store.newOffer;
-				let offers = store.offers;
-				newOffer.taskId = taskId;
+				let { newOffer, candidates, account } = store;
 
-				offers = [ ...offers, newOffer ];
-				setStore({ offers });
+				newOffer.taskId = taskId;
+				newOffer.userId = account.userId;
+
+				candidates = [ ...candidates, newOffer ];
+				setStore({ candidates });
 			}
 		}
 	};

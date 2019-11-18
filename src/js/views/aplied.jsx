@@ -22,7 +22,11 @@ const Posted = (props) => {
 								<h2>Tareas activas</h2>
 							</div>
 							{tasks
-								.filter((task) => task.id === candidates[0].taskId || task.id === candidates[1].taskId)
+								.filter(
+									(task) =>
+										task.id === candidates[0].taskId ||
+										task.id === candidates[candidates.length > 4 ? 4 : 1].taskId
+								)
 								.map((task) => {
 									return (
 										<article className="history__task-holder row" key={task.id}>

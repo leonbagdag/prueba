@@ -14,12 +14,12 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Login extends Input {
-	componentDidMount() {
+	/* componentDidMount() {
 		let username = localStorage.getItem('username');
 		let password = localStorage.getItem('password');
 		console.log(username, password);
 		this.setState({ username, password });
-	}
+	} */
 
 	/* responseFacebook = (response) => {
 		console.log(response);
@@ -49,20 +49,15 @@ class Login extends Input {
 										e.preventDefault();
 										actions.handleLogin(this.state.data);
 										this.props.history.push('/tasks');
-										localStorage.setItem('username', this.state.data.username);
-										localStorage.setItem('password', this.state.data.password);
+										/* localStorage.setItem('username', this.state.data.username);
+										localStorage.setItem('password', this.state.data.password); */
 									}}
 								>
 									<label>Usuario:</label>
-									<input name="username" value={this.state.username} onChange={this.handleChange} />
+									<input name="username" onChange={this.handleChange} />
 
 									<label>Contraseña:</label>
-									<input
-										name="password"
-										type="password"
-										value={this.state.username}
-										onChange={this.handleChange}
-									/>
+									<input name="password" type="password" onChange={this.handleChange} />
 
 									{this.renderButton('Ingresar')}
 								</form>

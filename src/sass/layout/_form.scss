@@ -25,7 +25,8 @@ select {
 	height: 2.2rem;
 }
 
-input:hover {
+input:focus {
+	outline: none;
 	border: 1px solid $brand-color;
 }
 

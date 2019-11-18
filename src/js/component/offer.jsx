@@ -14,7 +14,7 @@ class Offer extends React.Component {
 				onSubmit={(e) => {
 					e.preventDefault();
 					this.props.handleSubmit(this.props.id);
-					this.props.history.push('/mytasks');
+					this.props.history.push('/applied');
 				}}
 			>
 				<legend>
@@ -40,7 +40,7 @@ class Offer extends React.Component {
 							id="recievedPayment"
 							name="payment"
 							className="payment"
-							value={this.state.payment}
+							placeholder={this.state.payment}
 							onChange={(e) => this.props.handleOffer(e)}
 							required
 						/>
