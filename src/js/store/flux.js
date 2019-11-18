@@ -309,6 +309,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				newTask = {
 					id: index,
+					userId: store.account.userId,
 					...newTask
 				};
 				tasks = [ ...tasks, newTask ];
