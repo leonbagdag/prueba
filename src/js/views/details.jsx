@@ -3,6 +3,7 @@ import Offer from '../component/offer';
 import { Consumer } from '../store/appContext';
 import '../../sass/main.scss';
 import { ChosenMessage, PendingMessage } from '../component/messages';
+import { withRouter } from 'react-router';
 
 class Details extends React.Component {
 	constructor() {
@@ -84,4 +85,4 @@ class Details extends React.Component {
 	}
 }
 
-export default Details;
+export default withRouter(Details);

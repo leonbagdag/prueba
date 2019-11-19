@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: 'Constanza',
 					lastname: 'Lastra',
 					rut: '17.700.391-3',
-					email: 'cflastra@uc.cl',
+					email: 'coni@mail.com',
 					username: 'coni',
 					password: '12345678',
 					phone: '+56934657353'

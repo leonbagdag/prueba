@@ -53,6 +53,10 @@
 		color: $darker-gray;
 		border-bottom: 1px solid $light-gray;
 
+		small {
+			color: white;
+		}
+
 		&--middle {
 			border-left: 1px solid $light-gray;
 			border-right: 1px solid $light-gray;

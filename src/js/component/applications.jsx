@@ -65,10 +65,10 @@ class Applied extends React.Component {
 										</th>
 										<th onClick={() => this.handleSort()}>
 											<h6>
-												Pago{' '}
+												Pago
 												<FontAwesomeIcon
 													icon={this.state.order !== 'asc' ? 'sort-up' : 'sort-down'}
-												/>{' '}
+												/>
 											</h6>
 										</th>
 										<th />
