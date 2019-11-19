@@ -24,7 +24,7 @@ class Post extends Input {
 								onSubmit={(e) => {
 									e.preventDefault();
 									actions.handleTaskSubmit(this.state.data);
-									this.props.history.push('/tasks');
+									this.props.history.push('/posted');
 								}}
 							>
 								<legend>

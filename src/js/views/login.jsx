@@ -12,6 +12,7 @@ import Input from '../component/input';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Animated } from 'react-animated-css';
 
 class Login extends Input {
 	/* componentDidMount() {
@@ -39,7 +40,9 @@ class Login extends Input {
 						<div className="container alpha-bg">
 							<main>
 								<header className="full-logo">
-									<FontAwesomeIcon icon="thumbtack" size="lg" />
+									<Animated animationIn="swing" isVisible={true}>
+										<FontAwesomeIcon icon="thumbtack" size="lg" />
+									</Animated>
 									<Logo />
 								</header>
 
@@ -61,9 +64,9 @@ class Login extends Input {
 
 									{this.renderButton('Ingresar')}
 								</form>
-								<div className="login__outro">
+								<div className="login__outro swing">
 									<small>
-										¿No tienes cuenta?{' '}
+										¿No tienes cuenta?
 										<Link to="/register">
 											<span className="link">Crea una aquí</span>
 										</Link>

@@ -25,7 +25,8 @@ select {
 	height: 2.2rem;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
 	outline: none;
 	border: 1px solid $brand-color;
 }
