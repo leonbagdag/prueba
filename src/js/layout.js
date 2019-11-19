@@ -36,7 +36,7 @@ class Layout extends React.Component {
 							<DashboardLayoutRoute path="/new" component={Post} />
 							<DashboardLayoutRoute path="/account" component={Account} />
 							<DashboardLayoutRoute path="/posted/:id" component={Posted} />
-							<DashboardLayoutRoute path="/applications" component={Applications} />
+							<DashboardLayoutRoute path="/applications/:id" component={Applications} />
 							<DashboardLayoutRoute path="/mytasks/applied/:id" component={Applied} />
 
 							<Route render={() => <h1>Esta página no existe :(</h1>} />

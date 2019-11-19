@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: 'Juan Manuel',
 					lastname: 'de Palacios',
 					rut: '2.125.743-2',
-					email: 'juanma@gmail.com',
+					email: 'juanma@mail.com',
 					username: 'juanma',
 					password: '98765432',
 					phone: '+56934257239'
@@ -34,7 +34,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: 'Francisco',
 					lastname: 'Martinez',
 					rut: '12.485.263',
-					email: 'anariak@gmail.com',
+					email: 'francisco@mail.com',
 					username: 'francisco',
 					password: '45612398',
 					phone: '+56934209745'
@@ -50,19 +50,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				{
 					userId: 1,
 					taskId: 6,
-					description: 'La que puede, puede y yo puedo',
+					description: 'Todo lo que tú me pidas, cuando tú me pidas',
 					payment: '15.000'
 				},
 				{
 					userId: 2,
 					taskId: 2,
-					description: 'Lo que me pidas puedo. Y si no existe, lo invento',
+					description: 'Tengo un montón de experiencia y puedo ir ahora mismo!',
 					payment: '15.000'
 				},
 				{
 					userId: 3,
 					taskId: 2,
-					description: 'Soy siempre el mejor, mejor que nadie más',
+					description: 'Soy experto en este tipo de tareas y tengo excelente disposición',
 					payment: '13.000'
 				}
 			],

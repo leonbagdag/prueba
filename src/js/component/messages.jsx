@@ -28,6 +28,35 @@ export const ChosenMessage = (props) => {
 	);
 };
 
+export const ChosenUserMessage = (props) => {
+	const { user } = props;
+
+	return (
+		<main>
+			<header className="success success--chosen">
+				<p>
+					<FontAwesomeIcon icon="star" /> Elegiste a la persona que va a realizar tu tarea
+				</p>
+			</header>
+
+			<div className="user-details">
+				<p>
+					Coordina los detalles con
+					<b> {`${user.name} ${user.lastname}`}</b>:
+				</p>
+				<ul>
+					<li>
+						<FontAwesomeIcon icon="phone-alt" className="brand-text" /> {user.email}
+					</li>
+					<li>
+						<FontAwesomeIcon icon="envelope" className="brand-text" /> {user.phone}
+					</li>
+				</ul>
+			</div>
+		</main>
+	);
+};
+
 export const PendingMessage = () => {
 	return (
 		<main className="pending">

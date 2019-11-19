@@ -36,7 +36,7 @@ const Posted = (props) => {
 										/>
 										<aside>
 											{task.hasCandidates ? (
-												<Link to={`/applications`}>
+												<Link to={`/applications/${task.id}`}>
 													<h3 className="history__task-holder__text">Ver postulaciones</h3>
 												</Link>
 											) : (

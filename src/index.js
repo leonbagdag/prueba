@@ -31,7 +31,9 @@ import {
 	faCheckCircle,
 	faHourglassHalf,
 	faPhoneAlt,
-	faEnvelope
+	faEnvelope,
+	faSortDown,
+	faSortUp
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -61,7 +63,9 @@ library.add(
 	faCheckCircle,
 	faHourglassHalf,
 	faPhoneAlt,
-	faEnvelope
+	faEnvelope,
+	faSortDown,
+	faSortUp
 );
 
 ReactDOM.render(<Layout />, document.getElementById('root'));
