@@ -26,7 +26,8 @@ select {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
 	outline: none;
 	border: 1px solid $brand-color;
 }

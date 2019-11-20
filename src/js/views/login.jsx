@@ -12,7 +12,7 @@ import Input from '../component/input';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Animated } from 'react-animated-css';
+//import { Animated } from 'react-animated-css';
 
 class Login extends Input {
 	/* componentDidMount() {
@@ -40,13 +40,17 @@ class Login extends Input {
 						<div className="container alpha-bg">
 							<main>
 								<header className="full-logo">
-									<Animated animationIn="swing" isVisible={true}>
-										<FontAwesomeIcon icon="thumbtack" size="lg" />
-									</Animated>
+									<FontAwesomeIcon
+										className="animated swing delay-5s	slower"
+										icon="thumbtack"
+										size="lg"
+									/>
+
 									<Logo />
 								</header>
 
 								<form
+									autoComplete="off"
 									className="login"
 									onSubmit={(e) => {
 										e.preventDefault();
@@ -68,7 +72,7 @@ class Login extends Input {
 									<small>
 										¿No tienes cuenta?
 										<Link to="/register">
-											<span className="link">Crea una aquí</span>
+											<span className="link"> Crea una aquí</span>
 										</Link>
 									</small>
 								</div>

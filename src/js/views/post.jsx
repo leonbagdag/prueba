@@ -20,6 +20,7 @@ class Post extends Input {
 					return (
 						<div className="container">
 							<form
+								autoComplete="off"
 								className="post"
 								onSubmit={(e) => {
 									e.preventDefault();

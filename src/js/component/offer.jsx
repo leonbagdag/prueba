@@ -11,6 +11,7 @@ class Offer extends React.Component {
 	render() {
 		return (
 			<form
+				autoComplete="off"
 				onSubmit={(e) => {
 					e.preventDefault();
 					this.props.handleSubmit(this.props.id);
